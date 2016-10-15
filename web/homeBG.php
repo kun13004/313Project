@@ -25,7 +25,7 @@
  		$dbPassword = $dbopts["pass"];
  		$dbName = ltrim($dbopts["path"],'/');
 
-		print "<p>pgsql:<br>host=$dbHost<br>port=$dbPort<br>dbname=$dbName<br>user=$dbUser<br>pass=$dbPassword<br></p>\n\n";
+		//print "<p>pgsql:<br>host=$dbHost<br>port=$dbPort<br>dbname=$dbName<br>user=$dbUser<br>pass=$dbPassword<br></p>\n\n";
 
 		try {
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
@@ -37,7 +37,7 @@
 
 		$result = pg_query($db, "SELECT first_name, last_name FROM member");
 
-		while ($row = pg_fetch_row(($result)) {
+		while ($row = pg_fetch_row($result)) {
 			echo "$row[0]";
 			echo "<br />\n";
 		}
