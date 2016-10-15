@@ -35,12 +35,12 @@
  			die();
 		}
 
-		echo "<p>$db</p><br />";
 
-		$result = pg_query($dbName, "SELECT first_name, last_name FROM member");
+		$result = $db->prepare('SELECT first_name, last_name FROM member');
+		$result->execute();
 
-		while ($row = pg_fetch_row($result)) {
-			echo "<p>$row[0]</p>";
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			echo $row['first_name'];
 			echo "<br />\n";
 		}
 
