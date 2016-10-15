@@ -35,7 +35,7 @@
  			die();
 		}
 
-		$result = pg_query($dbName, "SELECT * FROM *");
+		$result = pg_query($dbName, "SELECT * FROM member");
 
 		while ($row = pg_fetch_row(($result)) {
 			echo $row[1];
