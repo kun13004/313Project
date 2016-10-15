@@ -25,8 +25,6 @@
  		$dbPassword = $dbopts["pass"];
  		$dbName = ltrim($dbopts["path"],'/');
 
-		print "<p>pgsql:<br>host=$dbHost<br>port=$dbPort<br>dbname=$dbName<br>user=$dbUser<br>pass=$dbPassword<br></p>\n\n";
-
 		try {
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 		}
@@ -36,11 +34,12 @@
 		}
 
 
-		$result = $db->prepare('SELECT first_name, last_name FROM member');
+		$result = $db->prepare('SELECT * FROM member');
 		$result->execute();
 
+		echo "<p>First Name  -  Last Name  -  Email  </p><br/>";
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row['first_name'];
+			echo $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'];
 			echo "<br />\n";
 		}
 
