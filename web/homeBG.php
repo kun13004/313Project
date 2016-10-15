@@ -35,15 +35,12 @@
  			die();
 		}
 
-		$term pg_real_escape_string($_REQUEST['search']);
+		$result = pg_query($dbName, "SELECT * FROM *");
 
-		$sql = "SELECT * FROM ".$dbName."WHERE Description LIKE '%".$term."%'";
-		$r_query = pg_query($sql);
-		
-		while ($row = pg_fetch_array($r_query)) {
+		while ($row = pg_fetch_row(($result)) {
 			echo $row[1];
+			echo "<br />\n";
 		}
-
 
 
 	?>
