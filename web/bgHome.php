@@ -8,7 +8,7 @@
 	<form>
   		<input type="text" name="search" placeholder="Search..">
 	</form>
-	<?php
+	<!--<?php
 		// default Heroku Postgres configuration URL
 		$dbUrl = getenv('DATABASE_URL');
 
@@ -43,6 +43,6 @@
 		while ($row = pg_fetch_array($r_query)) {
 			echo $row[1];
 		}
-	?>
+	?> -->
 </body>
 </html>
