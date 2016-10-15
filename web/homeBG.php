@@ -5,6 +5,9 @@
 </head>
 <body>
 	<h1>Scripture Resources</h1>
+	<form>
+  		<input type="text" name="search" placeholder="Search..">
+	</form>
 	<?php
 		// default Heroku Postgres configuration URL
 		$dbUrl = getenv('DATABASE_URL');
@@ -15,8 +18,6 @@
 		}
 
 		$dbopts = parse_url($dbUrl);
-
-		//print "<p>$dbUrl</p>\n\n";
 
 		$dbHost = $dbopts["host"]; 
  		$dbPort = $dbopts["port"]; 
@@ -34,11 +35,13 @@
  			die();
 		}
 
-		$result = pg_query($db, "SELECT book, chapter, verse, content FROM scriptures_table");
+		$term pg_real_escape_string($_REQUEST['search']);
+
+		$sql = "SELECT * FROM ".$dbName."WHERE Description LIKE '%".$term."%'";
+		$r_query = pg_query($sql);
 		
-		while ($row = pg_fetch_row($result)) {
-			echo "<p><b>$row[1] $row[2]:$row[3]<b> - \"$row[4]\"<p>";
-			echo "<br />\n";
+		while ($row = pg_fetch_array($r_query)) {
+			echo $row[1];
 		}
 
 
