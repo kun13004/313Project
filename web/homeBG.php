@@ -35,7 +35,7 @@
  			die();
 		}
 
-		$result = pg_query($dbName, "SELECT first_name, last_name FROM member");
+		$result = pg_query($db, "SELECT first_name, last_name FROM member");
 
 		while ($row = pg_fetch_row(($result)) {
 			echo "$row[0]";
