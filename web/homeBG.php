@@ -33,7 +33,7 @@
 
 		echo "$term";
 		//$result = $db->prepare('SELECT * FROM member WHERE first_name = $term');
-		$sql = "SELECT * FROM member WHERE first_name = '$term'";
+		$sql = "SELECT * FROM member WHERE first_name = 'Luke'";
 		$result = pg_query($db, $sql);
 		//$result->execute();
 
