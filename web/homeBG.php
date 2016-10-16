@@ -32,7 +32,7 @@
 		$term = pg_escape_string($_REQUEST['search']);
 
 		echo "$term";
-		$result = $db->prepare('SELECT * FROM member WHERE first_name LIKE "%Luke%"');
+		$result = $db->prepare("SELECT * FROM member");
 		$result->execute();
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
