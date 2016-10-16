@@ -33,9 +33,9 @@
 
 		$result = $db->prepare("SELECT * FROM member WHERE first_name = '$term' OR last_name = '$term'");
 		$result->execute();
-
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'];
+			echo 'First name: ' . $row['first_name'] . '<br>';
+			echo 'Last name: ' . $row['last_name'] . '<br>';
 			echo "<br />\n";
 		}
 
