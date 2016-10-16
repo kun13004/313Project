@@ -31,11 +31,10 @@
 		//$term = mysql_real_escape_string($_REQUEST['forums']); 
 		$term = pg_escape_string($_REQUEST['search']);
 
-		$result = $db->prepare("SELECT * FROM member WHERE first_name LIKE '%$term%' OR last_name LIKE '%$term%'");
+		$result = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo 'First name: ' . $row['first_name'] . '<br>';
-			echo 'Last name: ' . $row['last_name'] . '<br>';
+			echo $row['game_title'] . ' ' . $row['game_subtitle'];
 			echo "<br />\n";
 		}
 
