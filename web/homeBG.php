@@ -39,7 +39,7 @@
 
 		//while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 		while ($row = pg_fetch_array($result)) {
-			echo $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'];
+			echo $row[0] . ' - ' . $row['last_name'] . ' - ' . $row['email'];
 			echo "<br />\n";
 		}
 
