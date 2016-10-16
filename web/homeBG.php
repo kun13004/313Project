@@ -32,14 +32,11 @@
 		$term = pg_escape_string($_REQUEST['search']);
 
 		echo "$term";
-		//$result = $db->prepare('SELECT * FROM member WHERE first_name = $term');
-		$sql = "SELECT * FROM member WHERE first_name = 'Luke'";
-		$result = pg_query($db, $sql);
-		//$result->execute();
+		$result = $db->prepare('SELECT * FROM member WHERE first_name = "Luke"');
+		$result->execute();
 
-		//while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-		while ($row = pg_fetch_array($result)) {
-			echo $row[0] . ' - ' . $row['last_name'] . ' - ' . $row['email'];
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			echo $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'];
 			echo "<br />\n";
 		}
 
