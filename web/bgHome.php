@@ -4,9 +4,11 @@
 	<title>Scripture Resources</title>
 </head>
 <body>
-	<h1>Home Page</h1>
+	<div>
+	<h2>Search for a user</h2>
 	<form method="post" action="homeBG.php">
   		<input type="text" name="search" placeholder="Search..">
 	</form>
+	</div>
 </body>
 </html>

@@ -31,7 +31,7 @@
 		//$term = mysql_real_escape_string($_REQUEST['forums']); 
 		$term = pg_escape_string($_REQUEST['search']);
 
-		$result = $db->prepare("SELECT * FROM member WHERE first_name = '$term' OR last_name = '$term'");
+		$result = $db->prepare("SELECT * FROM member WHERE first_name LIKE '%$term%' OR last_name LIKE '%$term%'");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo 'First name: ' . $row['first_name'] . '<br>';
