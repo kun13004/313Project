@@ -32,7 +32,7 @@
 		$term = $_POST["search"];
 
 		echo "$term";
-		$result = $db->prepare('SELECT * FROM member WHERE first_name LIKE "$_POST["search"]"');
+		$result = $db->prepare('SELECT * FROM member WHERE first_name = $_POST["search"]');
 		$result->execute();
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
