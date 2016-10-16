@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div>
-	<h2>Search for a user</h2>
+	<h2>Search for a game</h2>
 	<form method="post" action="homeBG.php">
   		<input type="text" name="search" placeholder="Search..">
 	</form>

@@ -4,6 +4,7 @@
 	<title>Scripture Resources</title>
 </head>
 <body>
+	<h2>Search results</h2>
 	<?php
 		// default Heroku Postgres configuration URL
 		$dbUrl = getenv('DATABASE_URL');
@@ -31,10 +32,10 @@
 		//$term = mysql_real_escape_string($_REQUEST['forums']); 
 		$term = pg_escape_string($_REQUEST['search']);
 
-		$result = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
+		$result = $db->prepare("SELECT * FROM * WHERE * LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row['game_title'] . ' ' . $row['game_subtitle'];
+			echo $row[0] . ' ' . $row['game_subtitle'] . '<br>';
 			echo "<br />\n";
 		}
 
