@@ -4,10 +4,6 @@
 	<title>Scripture Resources</title>
 </head>
 <body>
-	<h1>Scripture Resources</h1>
-	<form>
-  		<input type="text" name="search" placeholder="Search..">
-	</form>
 	<?php
 		// default Heroku Postgres configuration URL
 		$dbUrl = getenv('DATABASE_URL');
@@ -32,12 +28,12 @@
  			print "<p>error: $ex->getMessage() </p>\n\n";
  			die();
 		}
+		//$term = mysql_real_escape_string($_REQUEST['forums']); 
+		$term = $_POST["search"];
 
-
-		$result = $db->prepare('SELECT * FROM member');
+		$result = $db->prepare('SELECT * FROM member WHERE name = $term');
 		$result->execute();
 
-		echo "<p>First Name  -  Last Name  -  Email  </p><br/>";
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo $row['first_name'] . ' - ' . $row['last_name'] . ' - ' . $row['email'];
 			echo "<br />\n";
