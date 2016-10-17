@@ -29,6 +29,7 @@
 		}
 		$term = pg_escape_string($_REQUEST['Games']);
 		echo $term;
+		echo $_POST['Games'];
 
 		$result = $db->prepare("SELECT * FROM game");
 		$result->execute();
