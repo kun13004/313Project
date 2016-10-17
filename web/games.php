@@ -31,7 +31,7 @@
  			die();
 		}
 
-		$result = $db->prepare("SELECT game_title, game_subtitle, game_description FROM game");
+		$result = $db->prepare("SELECT * FROM game");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo $row['game_title'] . '<br>';
