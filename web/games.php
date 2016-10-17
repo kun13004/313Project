@@ -27,11 +27,13 @@
  			print "<p>error: $ex->getMessage() </p>\n\n";
  			die();
 		}
-		echo $_POST['Games'];
+		$term = pg_escape_string($_REQUEST['Games']);
+		echo $term;
+
 		$result = $db->prepare("SELECT * FROM game");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row['game_name'] . '<br>';
+			echo $row['game_title'] . '<br>';
 			echo "<br />\n";
 		}
 	?>
