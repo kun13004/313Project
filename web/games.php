@@ -23,7 +23,7 @@
 		try {
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-			$result = $db->prepare("SELECT game_type FROM game");
+			$result = $db->prepare("SELECT game_name FROM game");
 			$result->execute();
 			while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 				echo $row['game_name'] . '<br>';					
