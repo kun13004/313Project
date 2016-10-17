@@ -23,7 +23,8 @@
 		try {
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-			$result = $db->prepare('SELECT * FROM game');
+			$term = pg_escape_string($_REQUEST['byName']);
+			$result = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%'");
 			$result->execute();
 			while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 				echo $row['game_title'] . '<br>';
