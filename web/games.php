@@ -27,7 +27,7 @@
  			print "<p>error: $ex->getMessage() </p>\n\n";
  			die();
 		}
-		$term = pg_escape_string($_REQUEST['Games']);
+		$term = pg_escape_string($_REQUEST['game_title']);
 		echo $term;
 
 		$result = $db->prepare("SELECT * FROM game");
