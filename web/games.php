@@ -23,7 +23,7 @@
 		try {
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-			if ($_POST['byName'] == '2') {
+			if ($_POST['byName'] == 'type') {
 				$result = $db->prepare("SELECT game_type FROM game");
 				$result->execute();
 				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -31,7 +31,7 @@
 					echo "<br />\n";
 				}
 			}
-			else if ($_POST['byName'] == '1') {
+			else if ($_POST['byName'] == 'name') {
 				$result = $db->prepare("SELECT game_title FROM game");
 				$result->execute();
 				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
