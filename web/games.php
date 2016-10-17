@@ -31,14 +31,13 @@
  			die();
 		}
 
-		$result = $db->prepare("SELECT game_title, game_subtitle, game_description FROM game ORDER BY game_title");
+		$result = $db->prepare("SELECT game_title, game_subtitle, game_description FROM game");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row . '<br>';
+			echo $row['game_title'] . '<br>';
+			echo $row['game_description'] . '<br>';
 			echo "<br />\n";
 		}
-
-
 	?>
 </body>
 </html>
