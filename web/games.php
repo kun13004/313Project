@@ -23,23 +23,21 @@
 		try {
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-			if ($_POST['byName'] == 0) {
-				$term = pg_escape_string($_REQUEST['byName']);
-			$result = $db->prepare("SELECT game_type FROM game");
-			$result->execute();
-			while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-				echo $row['game_type'] . '<br>';
-				echo "<br />\n";
+			if ($_REQUEST['byName'] == '0') {
+				$result = $db->prepare("SELECT game_type FROM game");
+				$result->execute();
+				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+					echo $row['game_type'] . '<br>';
+					echo "<br />\n";
+				}
+			else if ($_REQUEST['byName'] == '1') {
+				$result = $db->prepare("SELECT game_title FROM game");
+				$result->execute();
+				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+					echo $row['game_title'] . '<br>';
+					echo "<br />\n";
+				}
 			}
-			else if ($_POST['byName'] == 1) {
-			$term = pg_escape_string($_REQUEST['byName']);
-			$result = $db->prepare("SELECT game_title FROM game");
-			$result->execute();
-			while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-				echo $row['game_title'] . '<br>';
-				echo "<br />\n";
-			}
-		}
 		}
 		catch (PDOException $ex) {
  			print "<p>error: $ex->getMessage() </p>\n\n";
