@@ -30,6 +30,7 @@
 					echo $row['game_type'] . '<br>';
 					echo "<br />\n";
 				}
+			}
 			else if ($_REQUEST['byName'] == '1') {
 				$result = $db->prepare("SELECT game_title FROM game");
 				$result->execute();
