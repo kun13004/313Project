@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Game List</title>
+	<title>A Game</title>
 </head>
 <body>
-	<h1>List of games</h1>
 	<?php
 		$dbUrl = getenv('DATABASE_URL');
 
@@ -31,7 +30,10 @@
 		$result = $db->prepare("SELECT * FROM game");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo '<a href="game.php" >' . $row['game_title'] . '</a><br>';
+			echo '<h1>' . $row['game_title'] . '</h1><br>';
+			echo '<h2>' . $row['game_subtitle'] . '</h2><br>';
+			echo '<p>' . $row['game_type'] . '</p><br>';
+			echo '<p>' . $row['game_description'] . '</p><br>';
 			echo "<br />\n";
 		}
 	?>
