@@ -26,6 +26,9 @@
 			$term = pg_escape_string($_REQUEST['byName']);
 
 			echo "$term";
+			echo $_POST['byName'];
+			echo $_REQUEST['byname'];
+			
 			if ($term == 'type') {
 				$result = $db->prepare("SELECT game_type FROM game");
 				$result->execute();
