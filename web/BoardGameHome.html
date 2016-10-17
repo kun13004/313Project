@@ -8,9 +8,11 @@
 	<h1> Header Title </h1>
 	<form method="post" action="search.php">
   		<input type="text" name="search" placeholder="Search..">
-	</form>
+  	</form>
 	<ul>
-  		<li><a href="games.php">Games</a></li>
+		<form>
+  		<li><a href="games.php" onclick="form.submit();">Games</a></li>
+  		</form>
   		<li><a href="forums.php">Forums</a></li>
   		<li><a href="about.html">About</a></li>
 	</ul>

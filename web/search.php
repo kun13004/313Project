@@ -30,7 +30,7 @@
  			print "<p>error: $ex->getMessage() </p>\n\n";
  			die();
 		}
-		//$term = mysql_real_escape_string($_REQUEST['forums']); 
+
 		$term = pg_escape_string($_REQUEST['search']);
 
 		$result = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
