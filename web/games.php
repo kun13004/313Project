@@ -24,6 +24,8 @@
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
 			$term = pg_escape_string($_REQUEST['byName']);
+
+			echo "$term";
 			if ($term == 'type') {
 				$result = $db->prepare("SELECT game_type FROM game");
 				$result->execute();
