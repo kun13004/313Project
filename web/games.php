@@ -23,27 +23,11 @@
 		try {
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-			$term = pg_escape_string($_REQUEST['byName']);
-
-			echo "$term";
-			echo $_POST['byName'];
-			echo $_REQUEST['byname'];
-			
-			if ($term == 'type') {
-				$result = $db->prepare("SELECT game_type FROM game");
-				$result->execute();
-				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-					echo $row['game_type'] . '<br>';
-					echo "<br />\n";
-				}
-			}
-			else if ($term == 'name') {
-				$result = $db->prepare("SELECT game_title FROM game");
-				$result->execute();
-				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-					echo $row['game_title'] . '<br>';
-					echo "<br />\n";
-				}
+			$result = $db->prepare("SELECT game_type FROM game");
+			$result->execute();
+			while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+				echo $row['game_name'] . '<br>';					
+				echo "<br />\n";
 			}
 		}
 		catch (PDOException $ex) {
