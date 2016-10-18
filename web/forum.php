@@ -45,25 +45,7 @@
 			echo $row['user_name'] . ' - ' . $row['post_date'] . $row['post_time'] . '<br>';
 			echo "<br />\n";
 		}
-		/*
-		$result2 = $db->prepare("SELECT f.topic
-			, p.post
-			, p.post_date
-			, p.post_time
-			, m.user_name 
-			FROM post p 
-			INNER JOIN forum f ON p.forum_id = f.id 
-			INNER JOIN member m ON p.member_id = m.id 
-			Where p.parent_post_id != NULL AND f.topic LIKE '%$term%' 
-			ORDER BY p.parent_post_id");
-
-
-		$result2->execute();
-		while ($row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
-			echo $row2['post'] . '<br>';
-			echo $row2['user_name'] . ' - ' . $row2['post_date'] . $row2['post_time'] . '<br>';
-			echo "<br />\n";
-		}*/
+		
 
 	?>
 </body>
