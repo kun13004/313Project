@@ -34,10 +34,15 @@
 		$term = pg_escape_string($_REQUEST['search']);
 
 		$result = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
+		$result2 = $db->prepare("SELECT * FROM post WHERE post LIKE '%$term%'");
+
 		$result->execute();
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+		$result2->execute();
+
+		while ($row = $result->fetch(PDO::FETCH_ASSOC) || $row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
 			echo $row['game_title'] . '<br>';
 			echo "<br />\n";
+			echo $row2['post'] . '<br>';
 		}
 
 
