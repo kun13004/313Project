@@ -30,18 +30,39 @@
 
 		$term = pg_escape_string($_REQUEST['name']);
 
-		$result = $db->prepare(
-			"SELECT f.topic, p.post, p.post_date, p.post_time, m.user_name 
+		$result1 = $db->prepare(
+			"SELECT f.topic
+			, p.post
+			, p.post_date
+			, p.post_time
+			, m.user_name 
 			FROM post p 
 			INNER JOIN forum f ON p.forum_id = f.id 
 			INNER JOIN member m ON p.member_id = m.id 
-			Where f.topic LIKE '%$term%' 
+			Where p.parent_post_id = NULL AND f.topic LIKE '%$term%' 
 			ORDER BY p.id");
-		$result->execute();
+		$result2 = $db->prepare("SELECT f.topic
+			, p.post
+			, p.post_date
+			, FORMAT(p.post_time, 1)
+			, m.user_name 
+			FROM post p 
+			INNER JOIN forum f ON p.forum_id = f.id 
+			INNER JOIN member m ON p.member_id = m.id 
+			Where p.parent_post_id != NULL AND f.topic LIKE '%$term%' 
+			ORDER BY p.id");
+
+		$result1->execute();
+		$result2->execute();
+
 		echo $row['topic'];
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row['post'] . '<br>';
-			echo $row['user_name'] . ' - ' . $row['post_date'] . $row['post_time'] . '<br>';
+		while ($row1 = $result1->fetch(PDO::FETCH_ASSOC) || $row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
+			echo $row1['post'] . '<br>';
+			echo $row1['user_name'] . ' - ' . $row1['post_date'] . $row1['post_time'] . '<br>';
+			echo "<br />\n";
+
+			echo $row2['post'] . '<br>';
+			echo $row2['user_name'] . ' - ' . $row2['post_date'] . $row2['post_time'] . '<br>';
 			echo "<br />\n";
 		}
 
