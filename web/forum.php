@@ -34,7 +34,7 @@
 		$result->execute();
 		echo $row['forum.topic'];
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row['post.post'] . '<br>'
+			echo $row['post.post'] . '<br>';
 			echo $row['member.user_name'] . '<br>';
 			echo "<br />\n";
 		}
