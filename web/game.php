@@ -28,8 +28,9 @@
 		}
 
 		echo $_GET['name'];
+		$term = pg_escape_string($_REQUEST['name']);
 
-		$result = $db->prepare("SELECT * FROM game WHERE game_title = $_GET['name']");
+		$result = $db->prepare("SELECT * FROM game WHERE game_title = '$term'");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo '<h1>' . $row['game_title'] . '</h1><br>';
