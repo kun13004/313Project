@@ -34,7 +34,8 @@
 			FROM post 
 			INNER JOIN forum ON post.forum_id = forum.id 
 			INNER JOIN member ON post.member_id = member.id 
-			WHERE forum.topic LIKE '%$term%' AND post.parent_post_id = NULL");
+			WHERE forum.topic LIKE '%$term%'
+			ORDER BY post.parent_post_id");
 
 
 		$result->execute();
