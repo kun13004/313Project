@@ -33,12 +33,11 @@
 		$result = $db->prepare(
 			"SELECT f.topic, p1.post, p1.post_date, p1.post_time, m.user_name 
 			FROM post p1 
-			INNER JOIN post p2 ON p1.id = p2.parent_post_id
 			INNER JOIN forum f ON p1.forum_id = f.id 
 			INNER JOIN member m ON p1.member_id = m.id 
 			Where f.topic LIKE '%$term%'
 			GROUP BY  
-			ORDER BY p2.parent_post_id");
+			ORDER BY p1.parent_post_id");
 		$result->execute();
 		echo $row['topic'];
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
