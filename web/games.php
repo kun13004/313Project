@@ -31,7 +31,8 @@
 		$result = $db->prepare("SELECT * FROM game ORDER BY id");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo "<a href='game.php?name=$row['game_id']>'" . $row['game_title'] . "</a><br>";
+			$id = $row['game_id'];
+			echo "<a href='game.php?name=$id'>" . $row['game_title'] . "</a><br>";
 			echo "<br />\n";
 		}
 	?>
