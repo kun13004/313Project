@@ -27,7 +27,7 @@
  			die();
 		}
 
-		echo "$id";
+		echo $_GET['name'];
 		$result = $db->prepare("SELECT * FROM game");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
