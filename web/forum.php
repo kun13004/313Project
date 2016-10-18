@@ -42,6 +42,15 @@
 			Where p.parent_post_id = NULL AND f.topic LIKE '%$term%' 
 			ORDER BY p.id");
 
+
+		$result1->execute();
+		echo $row['topic'];
+		while ($row1 = $result1->fetch(PDO::FETCH_ASSOC)) {
+			echo $row1['post'] . '<br>';
+			echo $row1['user_name'] . ' - ' . $row1['post_date'] . $row1['post_time'] . '<br>';
+			echo "<br />\n";
+		}
+
 		$result2 = $db->prepare("SELECT f.topic
 			, p.post
 			, p.post_date
@@ -52,15 +61,7 @@
 			INNER JOIN member m ON p.member_id = m.id 
 			Where p.parent_post_id != NULL AND f.topic LIKE '%$term%' 
 			ORDER BY p.parent_post_id");
-
-
-		$result1->execute();
-		echo $row['topic'];
-		while ($row1 = $result1->fetch(PDO::FETCH_ASSOC)) {
-			echo $row1['post'] . '<br>';
-			echo $row1['user_name'] . ' - ' . $row1['post_date'] . $row1['post_time'] . '<br>';
-			echo "<br />\n";
-		}
+		
 
 		$result2->execute();
 		while ($row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
