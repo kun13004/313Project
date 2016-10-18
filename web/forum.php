@@ -41,16 +41,17 @@
 			INNER JOIN member m ON p.member_id = m.id 
 			Where p.parent_post_id = NULL AND f.topic LIKE '%$term%' 
 			ORDER BY p.id");
+
 		$result2 = $db->prepare("SELECT f.topic
 			, p.post
 			, p.post_date
-			, FORMAT(p.post_time, 1)
+			, p.post_time
 			, m.user_name 
 			FROM post p 
 			INNER JOIN forum f ON p.forum_id = f.id 
 			INNER JOIN member m ON p.member_id = m.id 
 			Where p.parent_post_id != NULL AND f.topic LIKE '%$term%' 
-			ORDER BY p.id");
+			ORDER BY p.parent_post_id");
 
 		$result1->execute();
 		$result2->execute();
