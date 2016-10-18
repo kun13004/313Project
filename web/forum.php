@@ -33,9 +33,9 @@
 		$result = $db->prepare(
 			"SELECT forum.topic, post.post, post.post_date, post.post_time, member.user_name 
 			FROM post 
+			INNER JOIN post ON post.id = post.parent_post_id
 			INNER JOIN forum ON post.forum_id = forum.id 
 			INNER JOIN member ON post.member_id = member.id 
-			INNER JOIN post ON post.id = post.parent_post_id
 			Where forum.topic LIKE '%$term%'
 			GROUP BY  
 			ORDER BY post.id, post.parent_post_id");
