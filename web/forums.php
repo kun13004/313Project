@@ -32,7 +32,7 @@
 		$result = $db->prepare("SELECT topic FROM forum");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$id = $row['id'];
+			$id = $row['topic'];
 			echo "<a href='forum.php?name=$id'>" . $row['topic'] . "</a><br>";
 			echo "<br />\n";
 		}
