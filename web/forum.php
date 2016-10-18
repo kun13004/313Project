@@ -31,13 +31,12 @@
 		$term = pg_escape_string($_REQUEST['name']);
 
 		$result = $db->prepare(
-			"SELECT f.topic, p1.post, p1.post_date, p1.post_time, m.user_name 
-			FROM post p1 
-			INNER JOIN forum f ON p1.forum_id = f.id 
-			INNER JOIN member m ON p1.member_id = m.id 
-			Where f.topic LIKE '%$term%'
-			GROUP BY  
-			ORDER BY p1.parent_post_id");
+			"SELECT f.topic, p.post, p.post_date, p.post_time, m.user_name 
+			FROM post p 
+			INNER JOIN forum f ON p.forum_id = f.id 
+			INNER JOIN member m ON p.member_id = m.id 
+			Where f.topic LIKE '%$term%' 
+			ORDER BY p.id");
 		$result->execute();
 		echo $row['topic'];
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
