@@ -30,17 +30,17 @@
 
 		$term = pg_escape_string($_REQUEST['name']);
 
-		$result = $db->prepare("SELECT f.topic, p.post, p.post_date, p.post_time, m.user_name 
-			FROM post p 
-			INNER JOIN forum f ON p.forum_id = f.id 
-			INNER JOIN member m ON p.member_id = m.id 
-			WHERE f.topic LIKE '%$term%'");
+		$result = $db->prepare("SELECT forum.topic, post.post, post.post_date, post.post_time, member.user_name 
+			FROM post 
+			INNER JOIN forum ON post.forum_id = forum.id 
+			INNER JOIN member ON post.member_id = member.id 
+			WHERE forum.topic LIKE '%$term%'");
 
 
 		$result->execute();
 
 		echo $row['topic'];
-		while ($row = $result1->fetch(PDO::FETCH_ASSOC)) {
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo $row['post'] . '<br>';
 			echo $row['user_name'] . ' - ' . $row['post_date'] . $row['post_time'] . '<br>';
 			echo "<br />\n";
