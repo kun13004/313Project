@@ -53,20 +53,21 @@
 			Where p.parent_post_id != NULL AND f.topic LIKE '%$term%' 
 			ORDER BY p.parent_post_id");
 
-		$result1->execute();
-		$result2->execute();
 
+		$result1->execute();
 		echo $row['topic'];
-		while ($row1 = $result1->fetch(PDO::FETCH_ASSOC) || $row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
+		while ($row1 = $result1->fetch(PDO::FETCH_ASSOC)) {
 			echo $row1['post'] . '<br>';
 			echo $row1['user_name'] . ' - ' . $row1['post_date'] . $row1['post_time'] . '<br>';
 			echo "<br />\n";
-
-			//echo $row2['post'] . '<br>';
-			//echo $row2['user_name'] . ' - ' . $row2['post_date'] . $row2['post_time'] . '<br>';
-			//echo "<br />\n";
 		}
 
+		$result2->execute();
+		while ($row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
+			echo $row2['post'] . '<br>';
+			echo $row2['user_name'] . ' - ' . $row2['post_date'] . $row2['post_time'] . '<br>';
+			echo "<br />\n";
+		}
 
 	?>
 </body>
