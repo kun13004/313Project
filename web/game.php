@@ -28,7 +28,8 @@
 		}
 
 		echo $_GET['name'];
-		$result = $db->prepare("SELECT * FROM game");
+
+		$result = $db->prepare("SELECT * FROM game WHERE game_title = $_GET['name']");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo '<h1>' . $row['game_title'] . '</h1><br>';
