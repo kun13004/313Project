@@ -6,12 +6,10 @@
 <body>
 	<h2>Search results</h2>
 	<?php
-		// default Heroku Postgres configuration URL
 		$dbUrl = getenv('DATABASE_URL');
 
 		if (empty($dbUrl)) {
- 		// example localhost configuration URL with postgres username and a database called cs313db
- 		$dbUrl = "postgres://postgres:password@localhost:5432/scriptures";
+ 		$dbUrl = "postgres://hugtqfrjvkgjma:7dj1BOGitBNwtoO_b0dJzI9Jfg@ec2-54-243-54-21.compute-1.amazonaws.com:5432/d1ci1fmm9irifj";
 		}
 
 		$dbopts = parse_url($dbUrl);
@@ -29,8 +27,8 @@
  			print "<p>error: $ex->getMessage() </p>\n\n";
  			die();
 		}
-		//$term = mysql_real_escape_string($_REQUEST['forums']); 
-		$term = pg_escape_string($_REQUEST['search']);
+
+		$term = pg_escape_string($_REQUEST['name']);
 
 		$result = $db->prepare("SELECT * FROM post WHERE forum_id LIKE '%$term%' ORDER BY parent_post_id");
 		$result->execute();

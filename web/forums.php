@@ -10,8 +10,7 @@
 		$dbUrl = getenv('DATABASE_URL');
 
 		if (empty($dbUrl)) {
- 		// example localhost configuration URL with postgres username and a database called cs313db
- 		$dbUrl = "postgres://postgres:password@localhost:5432/scriptures";
+ 		$dbUrl = "postgres://hugtqfrjvkgjma:7dj1BOGitBNwtoO_b0dJzI9Jfg@ec2-54-243-54-21.compute-1.amazonaws.com:5432/d1ci1fmm9irifj";
 		}
 
 		$dbopts = parse_url($dbUrl);
@@ -30,13 +29,12 @@
  			print "<p>error: $ex->getMessage() </p>\n\n";
  			die();
 		}
-		//$term = mysql_real_escape_string($_REQUEST['forums']); 
-		$term = pg_escape_string($_REQUEST['search']);
 
-		$result = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
+		$result = $db->prepare("SELECT topic FROM forum");
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row['game_title'] . '<br>';
+			$id = $row['id'];
+			echo "<a href='forum.php?name=$id'>" . $row['topic'] . "</a><br>";
 			echo "<br />\n";
 		}
 

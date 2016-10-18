@@ -27,7 +27,6 @@
  			die();
 		}
 
-		echo $_GET['name'];
 		$term = pg_escape_string($_REQUEST['name']);
 
 		$result = $db->prepare("SELECT * FROM game WHERE game_title = '$term'");
@@ -35,7 +34,6 @@
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo '<h1>' . $row['game_title'] . '</h1><br>';
 			echo '<h2>' . $row['game_subtitle'] . '</h2><br>';
-			echo '<p>' . $row['game_type'] . '</p><br>';
 			echo '<p>' . $row['game_description'] . '</p><br>';
 			echo "<br />\n";
 		}
