@@ -36,7 +36,7 @@
 			INNER JOIN forum ON post.forum_id = forum.id 
 			INNER JOIN member ON post.member_id = member.id 
 			Where forum.topic LIKE '%$term%' 
-			ORDER BY post.parent_post_id DESC");
+			ORDER BY post.id, post.parent_post_id");
 		$result->execute();
 		echo $row['topic'];
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
