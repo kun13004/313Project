@@ -36,14 +36,19 @@
 		$result2 = $db->prepare("SELECT * FROM post WHERE post LIKE '%$term%'");
 
 		$result->execute();
-		$result2->execute();
+		
 
-		while ($row = $result->fetch(PDO::FETCH_ASSOC) || $row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo $row['game_title'] . '<br>';
 			echo "<br />\n";
-			echo $row2['post'] . '<br>';
 		}
 
+		$result2->execute();
+
+		while ($row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
+			echo $row2['post'] . '<br>';
+			echo "<br />\n";
+		}
 
 	?>
 </body>
