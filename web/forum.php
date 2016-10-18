@@ -62,9 +62,9 @@
 			echo $row1['user_name'] . ' - ' . $row1['post_date'] . $row1['post_time'] . '<br>';
 			echo "<br />\n";
 
-			echo $row2['post'] . '<br>';
-			echo $row2['user_name'] . ' - ' . $row2['post_date'] . $row2['post_time'] . '<br>';
-			echo "<br />\n";
+			//echo $row2['post'] . '<br>';
+			//echo $row2['user_name'] . ' - ' . $row2['post_date'] . $row2['post_time'] . '<br>';
+			//echo "<br />\n";
 		}
 
 
