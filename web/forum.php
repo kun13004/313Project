@@ -45,9 +45,9 @@
 
 		$result1->execute();
 		echo $row['topic'];
-		while ($row1 = $result1->fetch(PDO::FETCH_ASSOC)) {
-			echo $row1['post'] . '<br>';
-			echo $row1['user_name'] . ' - ' . $row1['post_date'] . $row1['post_time'] . '<br>';
+		while ($row = $result1->fetch(PDO::FETCH_ASSOC)) {
+			echo $row['post'] . '<br>';
+			echo $row['user_name'] . ' - ' . $row['post_date'] . $row['post_time'] . '<br>';
 			echo "<br />\n";
 		}
 		/*
