@@ -30,7 +30,7 @@
 
 		$term = pg_escape_string($_REQUEST['name']);
 
-		$result1 = $db->prepare(
+		$result = $db->prepare(
 			"SELECT f.topic
 			, p.post
 			, p.post_date
@@ -43,7 +43,7 @@
 			ORDER BY p.id");
 
 
-		$result1->execute();
+		$result->execute();
 		echo $row['topic'];
 		while ($row = $result1->fetch(PDO::FETCH_ASSOC)) {
 			echo $row['post'] . '<br>';
