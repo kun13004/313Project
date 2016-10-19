@@ -23,7 +23,7 @@
 		$phone_number = pg_escape_string($_POST['phone']);
 		$phone_type = pg_escape_string($_POST['type']);
 		$email = pg_escape_string($_POST['email']);
-		$user_name = pg_escape_string($_POST['user_name']);
+		$user_name = pg_escape_string($_REQUEST['user_name']);
 		$password = pg_escape_string($_POST['password']);
 
 
