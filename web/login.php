@@ -5,8 +5,8 @@
 </head>
 <body>
 	<?php
-		ini_set('display_errors','on');
-		error_reporting(E_ALL);
+		//ini_set('display_errors','on');
+		//error_reporting(E_ALL);
 
 		$dbUrl = getenv('DATABASE_URL');
 
@@ -21,6 +21,8 @@
  		$dbUser = $dbopts["user"]; 
  		$dbPassword = $dbopts["pass"];
  		$dbName = ltrim($dbopts["path"],'/');
+
+ 		echo "host=$dbHost <br> dbname=$dbName <br> user=$dbUser <br>password=$dbPassword";
 
 		$db = pg_connect('host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword');
 		
