@@ -19,7 +19,7 @@
  		$dbPassword = $dbopts["pass"];
  		$dbName = ltrim($dbopts["path"],'/');
 
-		
+		echo "host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
 		$db = pg_connect('host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword');
 		
 
