@@ -27,28 +27,29 @@
  			die();
 		}
 
-		$first_name = pg_escape_string($_REQUEST['firstname']);
-		$last_name = pg_escape_string($_REQUEST['lastname']);
-		$country_code = pg_escape_string($_REQUEST['country']);
-		$area_code = pg_escape_string($_REQUEST['area']);
-		$phone_number = pg_escape_string($_REQUEST['phone']);
-		$phone_type = pg_escape_string($_REQUEST['type']);
-		$email = pg_escape_string($_REQUEST['email']);
-		$user_name = pg_escape_string($_REQUEST['user_name']);
-		$password = pg_escape_string($_REQUEST['password']);
+		$first_name = pg_escape_string($_POST['firstname']);
+		$last_name = pg_escape_string($_POST['lastname']);
+		$country_code = pg_escape_string($_POST['country']);
+		$area_code = pg_escape_string($_POST['area']);
+		$phone_number = pg_escape_string($_POST['phone']);
+		$phone_type = pg_escape_string($_POST['type']);
+		$email = pg_escape_string($_POST['email']);
+		$user_name = pg_escape_string($_POST['user_name']);
+		$password = pg_escape_string($_POST['password']);
 
 
+		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('" . $user_name . "', '" . $password. "', '" . $first_name . "', '" . $last_name . "', '" . $email . "')";
 
-		$result = $db->prepare("INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('$user_name', '$password', '$first_name', '$last_name', '$email')");
+		$result = pg_query($query);
 
-		//$result->bindParam(':user_name', $user_name, PDO::PARAM_STR, 100);
-    	//$result->bindParam(':password', $password, PDO::PARAM_STR, 100);
-    	//$result->bindParam(':first_name', $first_name, PDO::PARAM_STR, 100);
-    	//$result->bindParam(':email', $email, PDO::PARAM_STR, 100);
+		if (!$result) { 
+            $errormessage = pg_last_error(); 
+            echo "Error with query: " . $errormessage; 
+            exit(); 
+        } 
+        printf ("These values were inserted into the database - %s %s %s", $user_name, $password, $first_name, $last_name, $email); 
+        pg_close();
 
-		if ($result->execute()) {
-			echo "Inserted new member<br>";
-		}
 	?>
 </body>
 </html>
