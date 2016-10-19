@@ -19,7 +19,6 @@
  		$dbPassword = $dbopts["pass"];
  		$dbName = ltrim($dbopts["path"],'/');
 
-		echo "host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword";
 		$db = pg_connect('host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword');
 		
 
@@ -34,7 +33,7 @@
 		$password = pg_escape_string($_POST['password']);
 
 
-		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('" . $user_name . "', '" . $password. "', '" . $first_name . "', '" . $last_name . "', '" . $email . "')";
+		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('$user_name', '$password', '$first_name', '$last_name', '$email')";
 
 		$result = pg_query($db, $query);
 
