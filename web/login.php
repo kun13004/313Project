@@ -21,9 +21,9 @@
 		$countrycode = pg_escape_string($_POST['country']);
 		$areacode = pg_escape_string($_POST['area']);
 		$phonenumber = pg_escape_string($_POST['phone']);
-		$phonetype = pg_escape_string($_POST['type']);
+		//$phonetype = pg_escape_string($_POST['type']);
 		$email = pg_escape_string($_POST['email']);
-		$username = pg_escape_string($_REQUEST['user_name']);
+		$username = pg_escape_string($_REQUEST['username']);
 		$password = pg_escape_string($_POST['password']);
 
 
