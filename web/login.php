@@ -5,6 +5,9 @@
 </head>
 <body>
 	<?php
+		ini_set('display_errors','on');
+		error_reporting(E_ALL);
+
 		$dbUrl = getenv('DATABASE_URL');
 
 		if (empty($dbUrl)) {
@@ -33,7 +36,7 @@
 		$password = pg_escape_string($_POST['password']);
 
 
-		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('$user_name', '$password', '$first_name', '$last_name', '$email');";
+		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('$user_name', '$password', '$first_name', '$last_name', '$email')";
 
 		$result = pg_query($db, $query);
 
