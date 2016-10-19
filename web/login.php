@@ -5,26 +5,15 @@
 </head>
 <body>
 	<?php
-		//ini_set('display_errors','on');
-		//error_reporting(E_ALL);
+		ini_set('display_errors','on');
+		error_reporting(E_ALL);
 
-		$dbUrl = getenv('DATABASE_URL');
+ 		//$dbUrl = "postgres://hugtqfrjvkgjma:7dj1BOGitBNwtoO_b0dJzI9Jfg@ec2-54-243-54-21.compute-1.amazonaws.com:5432/d1ci1fmm9irifj";
+		
 
-		if (empty($dbUrl)) {
- 		$dbUrl = "postgres://hugtqfrjvkgjma:7dj1BOGitBNwtoO_b0dJzI9Jfg@ec2-54-243-54-21.compute-1.amazonaws.com:5432/d1ci1fmm9irifj";
-		}
+ 		//echo "host=$dbHost <br> dbname=$dbName <br> user=$dbUser <br>password=$dbPassword";
 
-		$dbopts = parse_url($dbUrl);
-
-		$dbHost = $dbopts["host"]; 
- 		$dbPort = $dbopts["port"]; 
- 		$dbUser = $dbopts["user"]; 
- 		$dbPassword = $dbopts["pass"];
- 		$dbName = ltrim($dbopts["path"],'/');
-
- 		echo "host=$dbHost <br> dbname=$dbName <br> user=$dbUser <br>password=$dbPassword";
-
-		$db = pg_connect('host=$dbHost dbname=$dbName user=$dbUser password=$dbPassword');
+		$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
 		
 
 		$first_name = pg_escape_string($_POST['firstname']);
