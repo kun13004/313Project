@@ -16,18 +16,18 @@
 		$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
 		
 
-		$first_name = pg_escape_string($_POST['firstname']);
-		$last_name = pg_escape_string($_POST['lastname']);
-		$country_code = pg_escape_string($_POST['country']);
-		$area_code = pg_escape_string($_POST['area']);
-		$phone_number = pg_escape_string($_POST['phone']);
-		$phone_type = pg_escape_string($_POST['type']);
+		$firstname = pg_escape_string($_POST['firstname']);
+		$lastname = pg_escape_string($_POST['lastname']);
+		$countrycode = pg_escape_string($_POST['country']);
+		$areacode = pg_escape_string($_POST['area']);
+		$phonenumber = pg_escape_string($_POST['phone']);
+		$phonetype = pg_escape_string($_POST['type']);
 		$email = pg_escape_string($_POST['email']);
-		$user_name = pg_escape_string($_REQUEST['user_name']);
+		$username = pg_escape_string($_REQUEST['user_name']);
 		$password = pg_escape_string($_POST['password']);
 
 
-		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('$user_name', '$password', '$first_name', '$last_name', '$email')";
+		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('" . $username . "', '" . $password . "', '" . $firstname . "', '" . $lastname . "', '" . $email . "')";
 
 		$result = pg_query($db, $query);
 
@@ -36,7 +36,7 @@
             echo "Error with query: " . $errormessage; 
             exit(); 
         } 
-        printf ("These values were inserted into the database - %s %s %s", $user_name, $password, $first_name, $last_name, $email); 
+        printf ("These values were inserted into the database - %s %s %s", $user_name, $password, $firstname, $lastname, $email); 
         pg_close();
 
 	?>
