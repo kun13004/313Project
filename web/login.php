@@ -36,7 +36,7 @@
             echo "Error with query: " . $errormessage; 
             exit(); 
         } 
-        printf ("These values were inserted into the database - %s %s %s", $user_name, $password, $firstname, $lastname, $email); 
+        printf ("These values were inserted into the database - %s %s %s", $username, $password, $firstname, $lastname, $email); 
         pg_close();
 
 	?>
