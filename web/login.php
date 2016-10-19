@@ -27,15 +27,15 @@
  			die();
 		}
 
-		$first_name = filter_input(INPUT_POST, 'firstname');
-		$last_name = filter_input(INPUT_POST, 'lastname');
-		$country_code = filter_input(INPUT_POST, 'country');
-		$area_code = filter_input(INPUT_POST, 'area');
-		$phone_number = filter_input(INPUT_POST, 'phone');
-		$phone_type = filter_input(INPUT_POST, 'type');
-		$email = filter_input(INPUT_POST, 'email');
-		$user_name = filter_input(INPUT_POST, 'user_name');
-		$password = filter_input(INPUT_POST, 'password');
+		$first_name = pg_escape_string($_REQUEST['firstname']);
+		$last_name = pg_escape_string($_REQUEST['lastname']);
+		$country_code = pg_escape_string($_REQUEST['country']);
+		$area_code = pg_escape_string($_REQUEST['area']);
+		$phone_number = pg_escape_string($_REQUEST['phone']);
+		$phone_type = pg_escape_string($_REQUEST['type']);
+		$email = pg_escape_string($_REQUEST['email']);
+		$user_name = pg_escape_string($_REQUEST['user_name']);
+		$password = pg_escape_string($_REQUEST['password']);
 
 
 
