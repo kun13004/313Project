@@ -36,7 +36,7 @@
 
 		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('" . $user_name . "', '" . $password. "', '" . $first_name . "', '" . $last_name . "', '" . $email . "')";
 
-		$result = pg_query($query);
+		$result = pg_query($db, $query);
 
 		if (!$result) { 
             $errormessage = pg_last_error(); 
