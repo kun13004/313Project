@@ -39,10 +39,16 @@
 
 
 
-		$result = $db->prepare("INSERT INTO member (user_name, password, first_name, last_name, email) VALUES ('$user_name', '$password', '$first_name', '$last_name', '$email')");
+		$result = $db->prepare("INSERT INTO member (user_name, password, first_name, last_name, email) VALUES (:user_name, :password, :first_name, :last_name, :email)");
 
-		$result->execute();
-		echo "Inserted new member<br>";
+		$stmt->bindParam(':user_name', $user_name, PDO::PARAM_STR, 100);
+    	$stmt->bindParam(':password', $password, PDO::PARAM_STR, 100);
+    	$stmt->bindParam(':first_name', $first_name, PDO::PARAM_STR, 100);
+    	$stmt->bindParam(':email', $email, PDO::PARAM_STR, 100);
+
+		if ($result->execute()) {
+			echo "Inserted new member<br>";
+		}
 	?>
 </body>
 </html>
