@@ -4,6 +4,7 @@
 	<title>Game List</title>
 </head>
 <body>
+	<a href="BoardGameHome.html">Home</a>
 	<h1>List of games</h1>
 	<?php
 		$dbUrl = getenv('DATABASE_URL');

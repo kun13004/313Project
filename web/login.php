@@ -4,6 +4,7 @@
 	<title></title>
 </head>
 <body>
+	<a href="BoardGameHome.html">Home</a>
 	<?php
 		ini_set('display_errors','on');
 		error_reporting(E_ALL);
