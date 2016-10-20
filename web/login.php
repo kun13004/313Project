@@ -9,11 +9,6 @@
 		ini_set('display_errors','on');
 		error_reporting(E_ALL);
 
- 		//$dbUrl = "postgres://hugtqfrjvkgjma:7dj1BOGitBNwtoO_b0dJzI9Jfg@ec2-54-243-54-21.compute-1.amazonaws.com:5432/d1ci1fmm9irifj";
-		
-
- 		//echo "host=$dbHost <br> dbname=$dbName <br> user=$dbUser <br>password=$dbPassword";
-
 		$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
 		
 

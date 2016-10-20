@@ -4,6 +4,7 @@
 	<title>Forum List</title>
 </head>
 <body>
+	<a href="BoardGameHome.html">Home</a>
 	<h1>List Forums</h1>
 	<?php
 		// default Heroku Postgres configuration URL
