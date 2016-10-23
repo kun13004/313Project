@@ -49,7 +49,7 @@ session_start();
 			WHERE forum.topic LIKE '%$term%'
 			ORDER BY post.parent_post_id");*/
 
-		$result = $db->prepare("SELECT post, post_date, post_time FROM post p1 WHERE id = (SELECT parent_post_id FROM post p2 WHERE p1 = p2)");
+		$result = $db->prepare("SELECT p1.post, p1.post_date, p1.post_time FROM post p1 WHERE p1.id = (SELECT p2.parent_post_id FROM post p2 WHERE p1.id = p2.parent_post_id)");
 
 
 		$result->execute();
