@@ -1,6 +1,12 @@
 <?php
 // Start the session
 session_start();
+
+$log = $_POST["name"];
+
+if ($log == "logout") {
+  $_SESSION["username"] = "";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,11 +16,12 @@ session_start();
 <body>
 	<div class="header">
 	<h1> Header Title </h1>
-  <a href="#" onclick="<?php $_SESSION["username"] = ""; ?>">Log out</a>
   <?php
     $_SESSION["username"];
     if ($_SESSION["username"] != "") {
       echo '<p>Welcome ' . $_SESSION["username"] . '<p><br>';
+      $id = "logout";
+      echo '<a href="BoardGameHome.php?name=$id">Log out</a>';
     }
     else {
       echo '<a href="login.html">Log in/Sign up</a>';
