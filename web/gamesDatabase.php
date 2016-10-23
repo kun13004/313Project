@@ -4,6 +4,7 @@
 	<title></title>
 </head>
 <body>
+    <a href="addGame.php">Back to adding games</a>
 	<?php
 
 		//ini_set('display_errors','on');
