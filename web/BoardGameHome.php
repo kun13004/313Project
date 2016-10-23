@@ -2,11 +2,6 @@
 // Start the session
 session_start();
 
-$log = $_POST["name"];
-echo $log;
-if ($log == "logout") {
-  $_SESSION["username"] = "";
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +13,10 @@ if ($log == "logout") {
 	<h1> Header Title </h1>
   <?php
     $_SESSION["username"];
+    $log = $_POST["name"];
+    if ($log == "logout") {
+      $_SESSION["username"] = "";
+    }
     if ($_SESSION["username"] != "") {
       echo '<p>Welcome ' . $_SESSION["username"] . '<p><br>';
       $id = "logout";
