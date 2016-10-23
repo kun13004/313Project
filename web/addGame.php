@@ -5,7 +5,7 @@
 </head>
 <body>
 	<h1>Add Board Game to Database</h1>
-	<form action="profile.php" method="post">
+	<form action="gamesDatabase.php" method="post">
 		<strong>Title</strong>
 		<input type="text" name="title"><br><br>
 		<strong>Subtitle</strong>
@@ -19,6 +19,7 @@
   		<input type="radio" name="bgtype" value="5"> Deck Building<br>
 		<strong>Description</strong>
 		<input type="text" name="description"><br><br>
+		<input type="submit" value="Submit">
 	</form>
 </body>
 </html>
