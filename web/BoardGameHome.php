@@ -3,7 +3,7 @@
 session_start();
 
 $log = $_POST["name"];
-
+echo $log;
 if ($log == "logout") {
   $_SESSION["username"] = "";
 }
