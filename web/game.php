@@ -7,7 +7,14 @@ session_start();
 	<title>A Game</title>
 </head>
 <body>
+	<div>
 	<a href="BoardGameHome.php">Home</a>
+	<?php
+		if ($_SESSION["username"] != "") {
+      		echo "<p>Welcome " . $_SESSION["username"] . "<p><br>";
+    	}
+    ?>
+	</div>
 	<?php
 		$dbUrl = getenv('DATABASE_URL');
 

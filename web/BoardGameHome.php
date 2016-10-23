@@ -13,13 +13,16 @@ session_start();
   <?php
     $_SESSION["username"];
     if ($_SESSION["username"] != "") {
-      echo "<p>Welcome " . $_SESSION["username"] . "<p><br>";
+      echo '<p>Welcome ' . $_SESSION["username"] . '<p><br>';
+      echo '<a href="">Log out</a>';
+    }
+    else {
+      echo '<a href="login.html">Log in/Sign up</a>';
     }
   ?>
 	<form method="post" action="search.php">
   		<input type="text" name="search" placeholder="Search..">
   	</form>
-  	<a href="login.html">Log in/Sign up</a>
   	<div>
   	<div>
   	

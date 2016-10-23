@@ -7,7 +7,14 @@ session_start();
 	<title>Forum List</title>
 </head>
 <body>
+	<div>
 	<a href="BoardGameHome.php">Home</a>
+	<?php
+		if ($_SESSION["username"] != "") {
+      		echo "<p>Welcome " . $_SESSION["username"] . "<p><br>";
+    	}
+    ?>
+	</div>
 	<h1>List Forums</h1>
 	<?php
 		// default Heroku Postgres configuration URL
