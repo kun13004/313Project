@@ -41,12 +41,15 @@ session_start();
 
 		$term = pg_escape_string($_REQUEST['name']);
 
+		/*
 		$result = $db->prepare("SELECT forum.topic, post.post, post.post_date, post.post_time, member.user_name 
 			FROM post 
 			INNER JOIN forum ON post.forum_id = forum.id 
 			INNER JOIN member ON post.member_id = member.id 
 			WHERE forum.topic LIKE '%$term%'
-			ORDER BY post.parent_post_id");
+			ORDER BY post.parent_post_id");*/
+
+		$result = $db->prepare("SELECT post, post_date, post_time FROM post p1 WHERE id = (SELECT parent_post_id FROM post p2 WHERE p1 = p2)");
 
 
 		$result->execute();
