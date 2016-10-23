@@ -1,10 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 </head>
 <body>
-	<a href="BoardGameHome.html">Home</a>
+	<a href="BoardGameHome.php">Home</a>
 	<?php
 		ini_set('display_errors','on');
 		error_reporting(E_ALL);

@@ -1,10 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Profile</title>
 </head>
 <body>
-	<a href="BoardGameHome.html">Home</a>
+	<a href="BoardGameHome.php">Home</a>
 	<?php
 		$dbUrl = getenv('DATABASE_URL');
 
@@ -30,6 +33,7 @@
 
 		$term1 = pg_escape_string($_REQUEST['username']);
 		$term2 = pg_escape_string($_REQUEST['password']);
+		$_SESSION["username"] = $term1;
 
 
 		$result = $db->prepare("SELECT * FROM member WHERE user_name = '$term1' AND password = '$term2'");

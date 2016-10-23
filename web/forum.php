@@ -1,10 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 </head>
 <body>
-	<a href="BoardGameHome.html">Home</a>
+	<a href="BoardGameHome.php">Home</a>
 	<h2>Search results</h2>
 	<?php
 		$dbUrl = getenv('DATABASE_URL');

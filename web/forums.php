@@ -1,10 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Forum List</title>
 </head>
 <body>
-	<a href="BoardGameHome.html">Home</a>
+	<a href="BoardGameHome.php">Home</a>
 	<h1>List Forums</h1>
 	<?php
 		// default Heroku Postgres configuration URL
