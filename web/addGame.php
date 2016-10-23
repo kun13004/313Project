@@ -9,7 +9,7 @@
 		<strong>Title</strong>
 		<input type="text" name="title"><br><br>
 		<strong>Subtitle</strong>
-		<input type="text" name="subtitle"><br><br>
+		<input type="text" name="subtitle"> example (BDGM*****) where * = int<br><br>
 		<strong>Barcode</strong>
 		<input type="text" name="barcode"><br><br>
 		<input type="radio" name="bgtype" value="1" checked> Dexterity<br>
