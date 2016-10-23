@@ -17,7 +17,7 @@
   		<input type="radio" name="bgtype" value="3"> Worker Placement<br>
   		<input type="radio" name="bgtype" value="4"> Dungeon Crawl<br>
   		<input type="radio" name="bgtype" value="5"> Deck Building<br>
-		<strong>Description</strong>
+		<strong>Description</strong><br>
 		<textarea rows="10" cols="100" name="description"></textarea><br><br>
 		<input type="submit" value="Submit">
 	</form>
