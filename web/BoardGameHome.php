@@ -10,11 +10,11 @@ session_start();
 <body>
 	<div class="header">
 	<h1> Header Title </h1>
+  <a href="#" onclick="<?php $_SESSION["username"] = ""; ?>">Log out</a>
   <?php
     $_SESSION["username"];
     if ($_SESSION["username"] != "") {
       echo '<p>Welcome ' . $_SESSION["username"] . '<p><br>';
-      echo '<a href="">Log out</a>';
     }
     else {
       echo '<a href="login.html">Log in/Sign up</a>';
