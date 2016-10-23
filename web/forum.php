@@ -49,7 +49,20 @@ session_start();
 			WHERE forum.topic LIKE '%$term%'
 			ORDER BY post.parent_post_id");*/
 
-		$result = $db->prepare("SELECT p1.post, p1.post_date, p1.post_time FROM post p1 INNER JOIN forum f1 WHERE f1.topic LIKE '%$term%' AND p1.parent_post_id = (SELECT p2.id FROM post p2 WHERE p1.parent_post_id = p2.id)");
+		$result = $db->prepare("WITH RECURSIVE q AS
+			(SELECT h, 1 AS level 
+			FROM post h 
+			WHERE parent_post_id = null 
+			UNION ALL 
+			SELECT hi, q.level + 1 AS level 
+			FROM q 
+			JOIN post hi
+			ON hi.parent_post_id = (q.h).id)
+			SELECT REPEAT('   ', level) || (q.h).id,
+			(q.h).parent_post_id,
+			(q.h).post,
+			level
+			FROM q");
 
 
 		$result->execute();
