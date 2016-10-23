@@ -58,8 +58,9 @@
 
             echo "<h2>$row[0]</h2>"; 
             echo "<h3>$row[1]</h3>";
-            echo "<p>Category: $theCategory    Barcode: $row[3]</p><br/>";
-            echo "<p>Description</p><br>";
+            echo "<p><b>Category:</b> $theCategory</p><br>";
+            echo "<p><b>Barcode:</b> $row[3]</p><br/>";
+            echo "<p><b>Description</b></p>";
             echo "<p>$row[4]</p><br>";
             echo "<br /><br />\n";
         }
