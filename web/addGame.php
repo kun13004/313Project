@@ -18,7 +18,7 @@
   		<input type="radio" name="bgtype" value="4"> Dungeon Crawl<br>
   		<input type="radio" name="bgtype" value="5"> Deck Building<br>
 		<strong>Description</strong>
-		<input type="text" name="description"><br><br>
+		<textarea rows="10" cols="100" name="description"></textarea><br><br>
 		<input type="submit" value="Submit">
 	</form>
 </body>
