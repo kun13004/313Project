@@ -42,7 +42,7 @@ session_start();
   					SELECT  post, parent_post_id, id
     				FROM post
   					UNION
-  					SELECT at.parent_post_id, at.id
+  					SELECT at.post, at.parent_post_id, at.id
     				FROM post at
     				JOIN all_posts a
       				ON (at.parent_post_id = a.id)
