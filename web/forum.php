@@ -44,7 +44,7 @@ session_start();
   					UNION
   					SELECT at.parent_post_id, at.id
     				FROM post at
-    				JOIN all_emails a
+    				JOIN all_posts a
       				ON (at.parent_post_id = a.id)
 					)
 					SELECT * FROM all_posts";
