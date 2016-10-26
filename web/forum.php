@@ -53,7 +53,7 @@ session_start();
 		$result = pg_query($db, $query);
 
 		while ($row = pg_fetch_row($result)) {
-			echo $row[0];
+			echo $row[0] . "<br>";
 		}
 
 		
