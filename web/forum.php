@@ -53,7 +53,7 @@ session_start();
 		$result = pg_query($db, $query);
 
 		while ($row = pg_fetch_row($result)) {
-			echo '<p>$row[0] $row[1]</p>';
+			echo $row['post'];
 		}
 
 		
