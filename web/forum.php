@@ -47,7 +47,8 @@ session_start();
     				JOIN all_posts a
       				ON (at.parent_post_id = a.id)
 					)
-					SELECT * FROM all_posts";
+					SELECT * FROM all_posts
+					ORDER BY parent_post_id";
 
 
 		$result = pg_query($db, $query);
