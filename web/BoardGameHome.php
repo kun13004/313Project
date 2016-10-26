@@ -19,8 +19,7 @@ session_start();
     }
     if ($_SESSION["username"] != "") {
       echo '<p>Welcome ' . $_SESSION["username"] . '<p><br>';
-      $id = "logout";
-      echo '<a href="BoardGameHome.php?name=$id">Log out</a>';
+      echo '<a href="logout.php">Log out</a>';
     }
     else {
       echo '<a href="login.html">Log in</a>';
