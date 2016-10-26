@@ -2,22 +2,11 @@
 session_start();
 header("Location: https://fathomless-plateau-18398.herokuapp.com/BoardGameHome.php");
 		exit();
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Profile</title>
-</head>
-<body>
-	<div>
-	<a href="BoardGameHome.php">Home</a>
-	<?php
+
 		if ($_SESSION["username"] != "") {
       		echo "<p>Welcome " . $_SESSION["username"] . "<p><br>";
     	}
-    ?>
-	</div>
-	<?php
+  
 
 		try {
 			$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
@@ -29,22 +18,39 @@ header("Location: https://fathomless-plateau-18398.herokuapp.com/BoardGameHome.p
 
 		$term1 = pg_escape_string($_REQUEST['username']);
 		$term2 = pg_escape_string($_REQUEST['password']);
-		$_SESSION["username"] = $term1;
 		$hash_term2 = password_hash($term2, PASSWORD_DEFAULT);
 
+		$query = "SELECT password FROM member WHERE user_name = '$term1'";
+		$result = pg_query($db, $query);
 
-		$result = $db->prepare("SELECT * FROM member WHERE user_name = '$term1' AND password = '$term2'");
-		$result->execute();
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo '<h2>' . $row['first_name'] . '</h2><br>';
-			echo '<h2>' . $row['last_name'] . '</h2><br>';
-			echo '<p>' . $row['user_name'] . $row['email'] . '</p><br>';
-			echo "<br />\n";
-		}
+		if (!$result) { 
+            $errormessage = pg_last_error(); 
+            echo "Error with query: " . $errormessage; 
+            exit(); 
+        }
+
+        $pass = pg_fetch_row($result);
+
+        if (password_verify($term2, $pass[0])) {
+        	$_SESSION["username"] = $term1;
+        	header("Location: https://fathomless-plateau-18398.herokuapp.com/BoardGameHome.php");
+		exit();
+        }
+        else {
+        	header("Location: https://fathomless-plateau-18398.herokuapp.com/login.html");
+		exit();
+        }
+
 
 		pg_close();
 
 
 	?>
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+</head>
+<body>
 </body>
 </html>
