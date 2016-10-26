@@ -1,10 +1,5 @@
 <?php
 session_start();
-
-
-		if ($_SESSION["username"] != "") {
-      		echo "<p>Welcome " . $_SESSION["username"] . "<p><br>";
-    	}
   
 
 		try {
