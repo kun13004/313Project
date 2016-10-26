@@ -47,7 +47,7 @@ session_start();
   					SELECT post.id, tree.ancestors || post.parent_post_id
   					FROM post, tree
   					WHERE post.parent_post_id = tree.id
-					) SELECT * FROM tree WHERE 0 = ANY(tree.ancestors);";
+					) SELECT * FROM tree WHERE 1 = ANY(tree.ancestors);";
 
 
 		$result = pg_query($db, $query);
