@@ -42,7 +42,7 @@ session_start();
 
 		pg_close();
 
-		header("Location: BoardGameHome.html");
+		header("Location: https://fathomless-plateau-18398.herokuapp.com/BoardGameHome.html");
 	?>
 </body>
 </html>
