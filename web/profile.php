@@ -1,7 +1,6 @@
 <?php
 session_start();
-header("Location: https://fathomless-plateau-18398.herokuapp.com/BoardGameHome.php");
-		exit();
+
 
 		if ($_SESSION["username"] != "") {
       		echo "<p>Welcome " . $_SESSION["username"] . "<p><br>";
