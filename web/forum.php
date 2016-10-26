@@ -38,22 +38,22 @@ session_start();
 			WHERE forum.topic LIKE '%$term%'
 			ORDER BY post.parent_post_id");*/
 
-		$query = "WITH RECURSIVE tree AS (
-  					SELECT id, ARRAY[]::INTEGER[] AS ancestors
-  					FROM post WHERE parent_post_id IS NULL
- 
-  					UNION ALL
- 
-  					SELECT post.post, tree.ancestors || post.parent_post_id
-  					FROM post, tree
-  					WHERE post.parent_post_id = tree.id
-					) SELECT * FROM tree WHERE 1 = ANY(tree.ancestors);";
+		$query = " WITH RECURSIVE all_posts AS (
+  					SELECT  parent_post_id, id
+    				FROM post
+  					UNION
+  					SELECT at.parent_post_id, at.id
+    				FROM post at
+    				JOIN all_emails a
+      				ON (at.parent_post_id = a.id)
+					)
+					SELECT * FROM all_posts";
 
 
 		$result = pg_query($db, $query);
 
 		while ($row = pg_fetch_row($result)) {
-			echo $row['post'];
+			echo $row[0];
 		}
 
 		
