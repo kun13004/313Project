@@ -44,7 +44,7 @@ session_start();
  
   					UNION ALL
  
-  					SELECT post.id, tree.ancestors || post.parent_post_id
+  					SELECT post.post, tree.ancestors || post.parent_post_id
   					FROM post, tree
   					WHERE post.parent_post_id = tree.id
 					) SELECT * FROM tree WHERE 1 = ANY(tree.ancestors);";
