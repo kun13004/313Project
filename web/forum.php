@@ -40,13 +40,13 @@ session_start();
 
 		$query = "WITH RECURSIVE tree AS (
   					SELECT id, ARRAY[]::INTEGER[] AS ancestors
-  					FROM post WHERE parent_id IS NULL
+  					FROM post WHERE parent_post_id IS NULL
  
   					UNION ALL
  
-  					SELECT post.id, tree.ancestors || post.parent_id
+  					SELECT post.id, tree.ancestors || post.parent_post_id
   					FROM post, tree
-  					WHERE post.parent_id = tree.id
+  					WHERE post.parent_post_id = tree.id
 					) SELECT * FROM tree WHERE 0 = ANY(tree.ancestors);";
 
 
