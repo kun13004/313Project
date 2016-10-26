@@ -28,6 +28,7 @@ session_start();
 		$term1 = pg_escape_string($_REQUEST['username']);
 		$term2 = pg_escape_string($_REQUEST['password']);
 		$_SESSION["username"] = $term1;
+		$hash_term2 = password_hash($term2, PASSWORD_DEFAULT);
 
 
 		$result = $db->prepare("SELECT * FROM member WHERE user_name = '$term1' AND password = '$term2'");
