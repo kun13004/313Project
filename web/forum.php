@@ -39,7 +39,7 @@ session_start();
 			ORDER BY post.parent_post_id");*/
 
 		$query = " WITH RECURSIVE all_posts AS (
-  					SELECT  parent_post_id, id
+  					SELECT  post, parent_post_id, id
     				FROM post
   					UNION
   					SELECT at.parent_post_id, at.id
