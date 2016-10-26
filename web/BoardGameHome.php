@@ -22,7 +22,7 @@ session_start();
       echo '<a href="logout.php">Log out</a>';
     }
     else {
-      echo '<a href="login.html">Log in</a>';
+      echo '<a href="login.html">Log in</a><br>';
       echo '<a href="signup.html">Sign up</a>';
     }
   ?>

@@ -20,22 +20,8 @@ session_start();
 		ini_set('display_errors','on');
         error_reporting(E_ALL);
 
-		$dbUrl = getenv('DATABASE_URL');
-
-		if (empty($dbUrl)) {
- 		$dbUrl = "postgres://hugtqfrjvkgjma:7dj1BOGitBNwtoO_b0dJzI9Jfg@ec2-54-243-54-21.compute-1.amazonaws.com:5432/d1ci1fmm9irifj";
-		}
-
-		$dbopts = parse_url($dbUrl);
-
-		$dbHost = $dbopts["host"]; 
- 		$dbPort = $dbopts["port"]; 
- 		$dbUser = $dbopts["user"]; 
- 		$dbPassword = $dbopts["pass"];
- 		$dbName = ltrim($dbopts["path"],'/');
-
 		try {
-			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+			$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
 		}
 		catch (PDOException $ex) {
  			print "<p>error: $ex->getMessage() </p>\n\n";
@@ -51,110 +37,24 @@ session_start();
 			INNER JOIN member ON post.member_id = member.id 
 			WHERE forum.topic LIKE '%$term%'
 			ORDER BY post.parent_post_id");*/
-		function fetchPosts($db, $forum) {
-			$sql = "WITH RECURSIVE cte (id, member_id, forum_id, parent_post_id, post, post_date, post_time) AS (
-				SELECT id,
-				post,
-					array[id] AS path,
-					parent_post_id,
-					1 AS depth
-				FROM post
-				WHERE parent_post_id = NULL
-				AND forum_id = :forum_id
 
-				UNION ALL
+		$query = "WITH RECURSIVE tree AS (
+  					SELECT id, ARRAY[]::INTEGER[] AS ancestors
+  					FROM post WHERE parent_id IS NULL
+ 
+  					UNION ALL
+ 
+  					SELECT post.id, tree.ancestors || post.parent_id
+  					FROM post, tree
+  					WHERE post.parent_id = tree.id
+					) SELECT * FROM tree WHERE 0 = ANY(tree.ancestors);";
 
-				SELECT post.id,
-					post.post,
-					cte.path || post.id,
-					post.parent_post_id,
-					cte.depth + 1 AS depth
-				FROM post
-				JOIN cte ON post.parent_post_id = cte.id
-				)
-				SELECT id, post, path, depth FROM cte
-			ORDER BY path";
 
-			$stmt = $db->prepare($sql);
+		$result = pg_query($db, $query);
 
-			$stmt->bindParam('forum_id', $forum, PDO:PARAM_INT);
-
-			$stmt->execute();
-
-			$result = $stmt->fetchAll( PDO:FETCH_ASSOC);
-
-			return $result;
+		while ($row = pg_fetch_row($resultAllGames)) {
+			echo '<p>$row[0] $row[1]</p>';
 		}
-
-
-		function toList( $comments) {
-			$threads = [];
-
-			foreach ($comments as $comment) {
-				
-				$replies = &$threads;
-
-				$ids = explode(','. trim( $comment['path'], '{}'));
-
-				$commentId = array_pop($ids);
-
-				if ($ids) {
-					foreach ($ids as $id) {
-						if (!isset($replies[$id])) {
-							$replies[$id] = ['comment' => null, 'replies' => []];
-						}
-
-						$replies = &$replies[$id]['replies'];
-					}
-				}
-
-				$replies[$commentId] = ['comment' => $comment, 'replies' => []];
-
-			}
-
-			$html = "<ul\n";
-
-			foreach ($threads as $thread) {
-				$html .= getThread($thread);
-			}
-
-			$html .= "</ul\n";
-
-			return $html;
-		}
-
-		function getThread($thread) {
-			$out = "<li>{$thread['comment']['content']}</li>/n";
-			if ($thread['replies']) {
-				$out .= "<li>\n<ul>\n";
-
-				foreach ($thread['replies'] as $reply) {
-					$out .= getThread($reply);
-				}
-				$out .= "</ul>\n</li>\n";
-			}
-			return $out;
-		}
-
-
-		$comments = fetchPosts( $db, $term );
-        
-        // format the results
-        echo toList( $comments );
-
-
-
-        /*
-		$result->execute();
-
-		echo $row['topic'];
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row['post'] . '<br>';
-			echo $row['user_name'] . ' - ' . $row['post_date'] . $row['post_time'] . '<br>';
-			echo "<br />\n";
-		}
-
-		*/
 
 		
 
