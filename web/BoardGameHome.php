@@ -23,7 +23,8 @@ session_start();
       echo '<a href="BoardGameHome.php?name=$id">Log out</a>';
     }
     else {
-      echo '<a href="login.html">Log in/Sign up</a>';
+      echo '<a href="login.html">Log in</a>';
+      echo '<a href="signup.html">Sign up</a>';
     }
   ?>
 	<form method="post" action="search.php">

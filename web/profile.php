@@ -16,22 +16,9 @@ session_start();
     ?>
 	</div>
 	<?php
-		$dbUrl = getenv('DATABASE_URL');
-
-		if (empty($dbUrl)) {
- 		$dbUrl = "postgres://hugtqfrjvkgjma:7dj1BOGitBNwtoO_b0dJzI9Jfg@ec2-54-243-54-21.compute-1.amazonaws.com:5432/d1ci1fmm9irifj";
-		}
-
-		$dbopts = parse_url($dbUrl);
-
-		$dbHost = $dbopts["host"]; 
- 		$dbPort = $dbopts["port"]; 
- 		$dbUser = $dbopts["user"]; 
- 		$dbPassword = $dbopts["pass"];
- 		$dbName = ltrim($dbopts["path"],'/');
 
 		try {
-			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+			$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
 		}
 		catch (PDOException $ex) {
  			print "<p>error: $ex->getMessage() </p>\n\n";
@@ -51,6 +38,8 @@ session_start();
 			echo '<p>' . $row['user_name'] . $row['email'] . '</p><br>';
 			echo "<br />\n";
 		}
+
+		header("Location: https://fathomless-plateau-18398.herokuapp.com/BoardGameHome.php");
 	?>
 </body>
 </html>

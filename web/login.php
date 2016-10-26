@@ -16,23 +16,26 @@ session_start();
     ?>
 	</div>
 	<?php
-		ini_set('display_errors','on');
-		error_reporting(E_ALL);
+		//ini_set('display_errors','on');
+		//error_reporting(E_ALL);
 
-		$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
+		try {
+			$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
+		}
+		catch (PDOException $ex) {
+ 			print "<p>error: $ex->getMessage() </p>\n\n";
+ 			die();
+		}
 		
 
 		$firstname = pg_escape_string($_POST['firstname']);
 		$lastname = pg_escape_string($_POST['lastname']);
-		$countrycode = pg_escape_string($_POST['country']);
-		$areacode = pg_escape_string($_POST['area']);
-		$phonenumber = pg_escape_string($_POST['phone']);
-		//$phonetype = pg_escape_string($_POST['type']);
 		$email = pg_escape_string($_POST['email']);
 		$username = pg_escape_string($_REQUEST['username']);
 		$password = pg_escape_string($_POST['password']);
+		$hashed_pass = password_hash($password, PASSWORD_DEFAULT);
 
-		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('" . $username . "', '" . $password . "', '" . $firstname . "', '" . $lastname . "', '" . $email . "')";
+		$query = "INSERT INTO member(user_name, password, first_name, last_name, email) VALUES ('" . $username . "', '" . $hashed_pass . "', '" . $firstname . "', '" . $lastname . "', '" . $email . "')";
 
 		$result = pg_query($db, $query);
 
@@ -41,8 +44,10 @@ session_start();
             echo "Error with query: " . $errormessage; 
             exit(); 
         } 
-        printf ("These values were inserted into the database - %s %s %s", $username, $password, $firstname, $lastname, $email); 
+        //printf ("These values were inserted into the database - %s %s %s", $username, $hashed_pass, $firstname, $lastname, $email); 
         pg_close();
+
+        header("Location: https://fathomless-plateau-18398.herokuapp.com/login.html");
 
 	?>
 </body>
