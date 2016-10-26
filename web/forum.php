@@ -17,6 +17,9 @@ session_start();
 	</div>
 	<h2>Search results</h2>
 	<?php
+		ini_set('display_errors','on');
+        error_reporting(E_ALL);
+
 		$dbUrl = getenv('DATABASE_URL');
 
 		if (empty($dbUrl)) {
