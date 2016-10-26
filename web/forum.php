@@ -51,7 +51,7 @@ session_start();
 			INNER JOIN member ON post.member_id = member.id 
 			WHERE forum.topic LIKE '%$term%'
 			ORDER BY post.parent_post_id");*/
-		function fetchPosts($db, $term) {
+		function fetchPosts($db, $forum) {
 			$sql = "WITH RECURSIVE cte (id, member_id, forum_id, parent_post_id, post, post_date, post_time) AS (
 				SELECT id,
 				post,
@@ -77,7 +77,7 @@ session_start();
 
 			$stmt = $db->prepare($sql);
 
-			$stmt->bindParam('forum_id', $term, PDO:PARAM_INT);
+			$stmt->bindParam('forum_id', $forum, PDO:PARAM_INT);
 
 			$stmt->execute();
 
@@ -137,7 +137,7 @@ session_start();
 		}
 
 
-		$comments = fetchComments( $db, 1 );
+		$comments = fetchPosts( $db, $term );
         
         // format the results
         echo toList( $comments );
