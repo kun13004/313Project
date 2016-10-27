@@ -12,6 +12,7 @@ session_start();
 </head>
 <body>
 
+  <!-- Header -->
   <ul>
     <li style="float:right;">
       <form method="post" action="search.php">
