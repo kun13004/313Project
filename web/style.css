@@ -19,7 +19,7 @@ li:last-child {
     border-right: none;
 }
 
-li a {
+li a, p {
     display: block;
     color: white;
     text-align: center;
@@ -37,13 +37,12 @@ li a:hover:not(.active) {
 
 input[name=search] {
 	width: 200px;
-	height: 40px;
+	height: 45px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     background-color: white;	
-    background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-128.png');
 	background-position: 10px 10px;
     background-repeat: no-repeat;
 }
