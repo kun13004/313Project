@@ -4,7 +4,8 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Forum Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div>
@@ -43,9 +44,8 @@ session_start();
 
 		while ($row = pg_fetch_row($result)) {
 			echo $row[1] . "<br>";
-			echo $row[2] . " ";
-			echo $row[3] . " ";
 			echo $row[4] . "<br>";
+			echo $row[2];
 			echo "<br><br>";
 		}
 

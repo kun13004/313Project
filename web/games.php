@@ -5,6 +5,7 @@ session_start();
 <html>
 <head>
 	<title>Game List</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div>
