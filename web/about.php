@@ -27,11 +27,11 @@
       echo '<li style="float:right"><a href="signup.html">Sign up</a></li>';
     }
   ?>
-      <li><a class="active" href="#">Home</a></li>
+      	<li><a href="BoardGameHome.php">Home</a></li>
   		<li><a href="games.php">Games</a></li>
   		<li><a href="forums.php">Forums</a></li>
-  		<li><a href="about.html">About</a></li>
-	 </ul>
+  		<li><a class="active" href="about.html">About</a></li>
+	</ul>
 
 	<h1>About the Website</h1>
 </body>
