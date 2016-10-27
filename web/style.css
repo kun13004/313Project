@@ -32,7 +32,7 @@ li p {
 	padding-left: 10px;
 }
 
-li a {
+li a, a {
     display: block;
     color: white;
     text-align: center;
