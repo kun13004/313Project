@@ -41,6 +41,7 @@ session_start();
 			$id = $row[0];
 			echo '<a href="game.php?name=$id">' . $row[0] . '</a><br>';
 			echo "<br />\n";
+			$id++;
 		}
 
 		$result2 = pg_query($db, $query2);
@@ -49,9 +50,9 @@ session_start();
 			$id = $row2[0];
 			echo '<a href="forum.php?name=$id">' . $row2[0] . '</a><br>';
 			echo "<br />\n";
+			$id++;
 		}
 
-		exit();
 	?>
 </body>
 </html>
