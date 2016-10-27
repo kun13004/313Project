@@ -44,7 +44,7 @@ session_start();
 
 		$term = pg_escape_string($_REQUEST['search']);
 
-		$result1 = $db->prepare("SELECT game_title FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
+		$result1 = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
 
 		$result2 = $db->prepare("SELECT forum.topic FROM forum INNER JOIN post ON forum.id = post.forum_id WHERE post.post LIKE '%$term%'");
 
