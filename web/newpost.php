@@ -17,7 +17,7 @@
     	exit();
     }
 
-    $query1 = "SELECT id FROM member WHERE username = '" . $_SESSION["username"] . "'";
+    $query1 = "SELECT id FROM member WHERE user_name = '" . $_SESSION["username"] . "'";
     $result1 = pg_query($db, $query1);
 
     $query2 = "SELECT id FROM forum WHERE topic = '" . $_SESSION["ftopic"] . "'";
