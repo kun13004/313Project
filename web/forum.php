@@ -58,8 +58,8 @@ session_start();
 
 		while ($row = pg_fetch_row($result)) {
 			echo $row[0] . "<br>";
-			echo $row[1] . " ";
-			echo $row[2] . "<br>";
+			echo $row[3] . " ";
+			echo $row[4] . "<br>";
 			echo "<br><br>";
 		}
 
