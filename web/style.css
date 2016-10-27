@@ -35,7 +35,7 @@ li a:hover:not(.active) {
     background-color: #4CAF50;
 }
 
-.search {
+input[name=search] {
 	width: 130px;
     box-sizing: border-box;
     border: 2px solid #ccc;
