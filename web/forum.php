@@ -38,17 +38,17 @@ session_start();
 			WHERE forum.topic LIKE '%$term%'
 			ORDER BY post.parent_post_id");*/
 
-		$query = " WITH RECURSIVE a AS (
+		$query = " WITH RECURSIVE all_posts AS (
   					SELECT  post, parent_post_id, id
     				FROM post
-    				WHERE post = 1
-  					UNION ALL
+    				WHERE id = 1
+  					UNION
   					SELECT at.post, at.parent_post_id, at.id
     				FROM post at
-    				JOIN a
-      				ON a.parent_post_id = at.id
+    				JOIN all_posts a
+      				ON (at.parent_post_id = a.id)
 					)
-					SELECT * FROM a";
+					SELECT * FROM all_posts;
 
 
 		$result = pg_query($db, $query);
