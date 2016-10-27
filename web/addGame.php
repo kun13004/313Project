@@ -11,6 +11,8 @@
 		<strong>Subtitle</strong>
 		<input type="text" name="subtitle"><br><br>
 		<strong>Barcode</strong>
+		<input type="text" name="image"><br><br>
+		<strong>Image Url</strong>
 		<input type="text" name="barcode"> example (BDGM*****) where * = int<br><br>
 		<input type="radio" name="bgtype" value="1" checked> Dexterity<br>
   		<input type="radio" name="bgtype" value="2"> Bluffing<br>

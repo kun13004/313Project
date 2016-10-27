@@ -15,18 +15,19 @@
 		$title = pg_escape_string($_POST['title']);
         $subtitle = pg_escape_string($_POST['subtitle']);
         $barcode = pg_escape_string($_POST['barcode']);
+        $image = pg_escape_string($_POST['image']);
         $category = pg_escape_string($_POST['bgtype']);
         $description = pg_escape_string($_POST['description']);
         $category1 = (int)$category;
 
         // Inserts the values into the game table
-        $queryNewGame = "INSERT INTO game(game_type, game_bar_code, game_title, game_subtitle, game_description) VALUES ('" . $category . "', '" . $barcode . "', '" . $title . "', '" . $subtitle . "', '" . $description . "') RETURNING id";
+        $queryNewGame = "INSERT INTO game(game_type, game_bar_code, game_title, game_subtitle, game_description, image) VALUES ('" . $category . "', '" . $barcode . "', '" . $title . "', '" . $subtitle . "', '" . $description . "', '" . $image "') RETURNING id";
 
         // Complete the query
         $resultNewGame = pg_query($db, $queryNewGame);
 
         // Query 
-        $queryAllGames = "SELECT game_title, game_subtitle, game_type, game_bar_code, game_description FROM game";
+        $queryAllGames = "SELECT game_title, game_subtitle, game_type, game_bar_code, game_description, image FROM game";
 
         // Complete the query
         $resultAllGames = pg_query($db, $queryAllGames);
