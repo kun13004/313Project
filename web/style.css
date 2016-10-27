@@ -1,7 +1,9 @@
-body {
-	background-color: rgb(100,200,150);
-}
 
+/*
+
+	Styling for the header
+
+*/
 ul {
     list-style-type: none;
     margin: 0;
@@ -55,5 +57,19 @@ input[name=search] {
     background-repeat: no-repeat;
 }
 
+
+
+/*
+
+	Style for the game list
+
+*/
+.gameList {
+	background-color: blue;
+}
+
+.singleGameList {
+	background-color: green;
+}
 
 

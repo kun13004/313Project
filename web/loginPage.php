@@ -36,8 +36,9 @@
   		<li><a href="about.html">About</a></li>
 	</ul>
 
-	<a href="BoardGameHome.php">Home</a>
+	
 	<h1>Log In</h1>
+  <div>
 	<form action="profile.php" method="post">
 		<strong>Username</strong>
 		<input type="text" name="username"><br><br>
@@ -45,5 +46,6 @@
 		<input type="password" name="password"><br><br>
 		<input type="submit" value="Submit">
 	</form>
+  </div>
 </body>
 </html>

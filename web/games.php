@@ -40,6 +40,7 @@ session_start();
 
 	<!-- List the Games -->
 	<h1>List of games</h1>
+	<div class="gameList">
 	<?php
 		$dbUrl = getenv('DATABASE_URL');
 
@@ -67,10 +68,13 @@ session_start();
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$id = $row['game_title'];
-			echo "<a href='game.php?name=$id'>" . $row['game_title'] . "</a><br>";
+			echo '<div class="singleGameList">';
+			echo "<a href='game.php?name=$id'>" . $row['game_title'] . ": " . $row['game_subtitle'] . "</a><br>";
 			echo "<br />\n";
+			echo "</div>";
 			$id++;
 		}
 	?>
+	</div>
 </body>
 </html>
