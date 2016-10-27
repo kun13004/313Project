@@ -68,7 +68,7 @@ session_start();
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$id = $row['game_title'];
-			echo "<div class='singleGameList'><a href='game.php?name=$id'>" . $row['game_title'] . ": " . $row['game_subtitle'] . "</a></div>";
+			echo "<div class='singleGameList'><a href='game.php?name=$id'>" . $row['game_title'] . " " . $row['game_subtitle'] . "</a></div>";
 			$id++;
 		}
 	?>
