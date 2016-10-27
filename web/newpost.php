@@ -12,7 +12,7 @@
  		die();
 	}
 
-	if ($_SESSION["username"] = "") {
+	if ($_SESSION["username"] == "") {
 		header("Location: https://fathomless-plateau-18398.herokuapp.com/forum.php");
     	exit();
     }
@@ -29,7 +29,7 @@
 	$forum_id = pg_fetch_row($result2);
 	
 
-	$query3 = "INSERT INTO post(member_id, forum_id, post, post_date, post_time) VALUES ('" . $member_id . "', '" . $forum_id . "', '" . $newpost . "', CURRENT_DATE, CURRENT_TIME')";
+	$query3 = "INSERT INTO post(member_id, forum_id, post, post_date, post_time) VALUES ('" . $member_id[0] . "', '" . $forum_id[0] . "', '" . $newpost . "', CURRENT_DATE, CURRENT_TIME')";
 	$result3 = pg_query($db, $query3);
 
 	if (!$result) { 
