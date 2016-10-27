@@ -21,7 +21,7 @@
         $category1 = (int)$category;
 
         // Inserts the values into the game table
-        $queryNewGame = "INSERT INTO game(game_type, game_bar_code, game_title, game_subtitle, game_description, image) VALUES ('" . $category . "', '" . $barcode . "', '" . $title . "', '" . $subtitle . "', '" . $description . "', '" . $image "') RETURNING id";
+        $queryNewGame = "INSERT INTO game(game_type, game_bar_code, game_title, game_subtitle, game_description, image) VALUES ('" . $category . "', '" . $barcode . "', '" . $title . "', '" . $subtitle . "', '" . $description . "', '" . $image . "') RETURNING id";
 
         // Complete the query
         $resultNewGame = pg_query($db, $queryNewGame);
