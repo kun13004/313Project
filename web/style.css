@@ -35,5 +35,12 @@ li a:hover:not(.active) {
     background-color: #4CAF50;
 }
 
+.search {
+	height: 50px;
+	background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-128.png');
+	background-position: 10px 10px;
+    background-repeat: no-repeat;
+}
+
 
 

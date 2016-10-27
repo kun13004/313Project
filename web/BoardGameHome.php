@@ -13,6 +13,11 @@ session_start();
 <body>
 
   <ul>
+    <li style="float:right;">
+      <form method="post" action="search.php">
+        <input type="text" name="search" placeholder="Search..">
+      </form>
+    </li>
   <?php
     $_SESSION["username"];
     $_SESSION["ftopic"];
@@ -33,11 +38,6 @@ session_start();
   		<li><a href="games.php">Games</a></li>
   		<li><a href="forums.php">Forums</a></li>
   		<li><a href="about.html">About</a></li>
-      <li style="float:right;">
-        <form method="post" action="search.php">
-          <input type="text" name="search" placeholder="Search..">
-        </form>
-      </li>
 	 </ul>
   
 </body>
