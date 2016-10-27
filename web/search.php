@@ -30,25 +30,25 @@ session_start();
 
 		$term = pg_escape_string($_REQUEST['search']);
 
-		$query1 = "SELECT game_title FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'";
+		$result1 = $db->prepare("SELECT game_title FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
 
-		$query2 = "SELECT forum.topic FROM forum INNER JOIN post ON forum.id = post.forum_id WHERE post.post LIKE '%$term%'";
+		$query2 = $db->prepare("SELECT forum.topic FROM forum INNER JOIN post ON forum.id = post.forum_id WHERE post.post LIKE '%$term%'");
 
-		$result1 = pg_query($db, $query1);
+		$result1->execute();
 		
 
-		while ($row = pg_fetch_row($result1)) {
-			$id = $row[0];
-			echo '<a href="game.php?name=$id">' . $row[0] . '</a><br>';
+		while ($row = $result1->fetch(PDO::FETCH_ASSOC)) {
+			$id = $row['game_title'];
+			echo '<a href="game.php?name=$id">' . $row['game_title'] . '</a><br>';
 			echo "<br />\n";
 			$id++;
 		}
 
-		$result2 = pg_query($db, $query2);
+		$result2->execute();
 
-		while ($row2 = pg_fetch_row($result2)) {
-			$id = $row2[0];
-			echo '<a href="forum.php?name=$id">' . $row2[0] . '</a><br>';
+		while ($row = $result2->fetch(PDO::FETCH_ASSOC)) {
+			$id = $row2['topic'];
+			echo '<a href="forum.php?name=$id">' . $row2['topic'] . '</a><br>';
 			echo "<br />\n";
 			$id++;
 		}
