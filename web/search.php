@@ -6,7 +6,9 @@
 <body>
 	<h2>Search results</h2>
 	<?php
-		
+		ini_set('display_errors','on');
+        error_reporting(E_ALL);
+        
 		try {
 			$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
 		}
