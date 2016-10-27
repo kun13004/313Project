@@ -15,7 +15,6 @@
 	$id = $_SESSION["ftopic"];
 
 	if ($_SESSION["username"] == "") {
-		echo "<script>window.alert('You are not logged in');</script>";
 		header("Location: https://fathomless-plateau-18398.herokuapp.com/forum.php?name=$id");
     	exit();
     }

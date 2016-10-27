@@ -53,7 +53,7 @@ session_start();
 
 	?>
 	<form action="newpost.php" method="post">
-		<strong>New Post</strong><br>
+		<strong>New Post (You must have an account and be logged in to post)</strong><br>
 		<textarea rows="10" cols="100" name="newpost"></textarea><br><br>
 		<input type="submit" value="Submit">
 	</form>
