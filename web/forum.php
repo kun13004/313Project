@@ -41,14 +41,15 @@ session_start();
 		$query = " WITH RECURSIVE all_posts AS (
   					SELECT  post, parent_post_id, id
     				FROM post
-    				WHERE id = 1
+    				WHERE parent_post_id = ''
   					UNION
   					SELECT at.post, at.parent_post_id, at.id
     				FROM post at
     				JOIN all_posts a
       				ON (at.parent_post_id = a.id)
 					)
-					SELECT * FROM all_posts;
+					SELECT * FROM all_posts
+					ORDER BY parent_post_id";
 
 
 		$result = pg_query($db, $query);
