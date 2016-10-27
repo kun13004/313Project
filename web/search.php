@@ -51,6 +51,7 @@ session_start();
 			echo "<br />\n";
 		}
 
+		exit();
 	?>
 </body>
 </html>
