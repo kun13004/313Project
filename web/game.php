@@ -45,7 +45,7 @@ session_start();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo '<h1>' . $row['game_title'] . '</h1><br>';
 			echo '<h2>' . $row['game_subtitle'] . '</h2><br>';
-			echo '<img src="' . $row['image'] . '" alt="' . $row['game_title'] . '" style="width:300px;height:300px;" >';
+			echo '<img src="' . $row['image'] . '" alt="' . $row['game_title'] . '" style="width:200px;height:220px;" >';
 			echo '<p>' . $row['game_description'] . '</p><br>';
 			echo "<br />\n";
 		}
