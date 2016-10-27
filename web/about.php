@@ -1,18 +1,12 @@
-<?php
-// Start the session
-session_start();
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home Page</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="BoardGameHome.js"></script>
+	<title>About</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-  <!-- Header -->
+	<!-- Header -->
   <ul>
     <li style="float:right;">
       <form method="post" action="search.php">
@@ -20,8 +14,6 @@ session_start();
       </form>
     </li>
   <?php
-    $_SESSION["username"];
-    $_SESSION["ftopic"];
     $log = $_POST["name"];
     if ($log == "logout") {
       $_SESSION["username"] = "";
@@ -38,8 +30,9 @@ session_start();
       <li><a class="active" href="#">Home</a></li>
   		<li><a href="games.php">Games</a></li>
   		<li><a href="forums.php">Forums</a></li>
-  		<li><a href="about.php">About</a></li>
+  		<li><a href="about.html">About</a></li>
 	 </ul>
-  
+
+	<h1>About the Website</h1>
 </body>
 </html>
