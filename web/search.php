@@ -28,7 +28,7 @@
 
 		while ($row = pg_fetch_row($result1)) {
 			$id1 = $row[0];
-			echo '<a href="game.php?name=$id1">' . $row[0] . '</a><br>';
+			echo '<a href="game.php?name=$id">' . $row[0] . '</a><br>';
 			echo "<br />\n";
 		}
 
@@ -36,7 +36,7 @@
 
 		while ($row2 = pg_fetch_row($result2)) {
 			$id2 = $row2[0];
-			echo '<a href="forum.php?name=$id2">' . $row2[0] . '</a><br>';
+			echo '<a href="forum.php?name=$id">' . $row2[0] . '</a><br>';
 			echo "<br />\n";
 		}
 
