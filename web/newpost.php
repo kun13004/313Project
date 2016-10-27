@@ -37,7 +37,7 @@
 				VALUES ('" . $member_id[0] . "', '" . $forum_id[0] . "', '" . $newpost . "', CURRENT_DATE, CURRENT_TIME);";
 	$result3 = pg_query($db, $query3);
 
-	if (!$result) { 
+	if (!$result3) { 
         $errormessage = pg_last_error(); 
         echo "Error with query: " . $errormessage; 
         exit(); 
