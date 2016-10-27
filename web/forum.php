@@ -29,7 +29,7 @@ session_start();
 		}
 
 		$term = pg_escape_string($_REQUEST['name']);
-
+		$_SESSION["ftopic"] = $term;
 		
 		$query = "SELECT forum.topic, post.post, post.post_date, post.post_time, member.user_name 
 			FROM post 
@@ -52,5 +52,10 @@ session_start();
 		
 
 	?>
+	<form action="newpost.php" method="post">
+		<strong>New Post</strong><br>
+		<textarea rows="10" cols="100" name="newpost"></textarea><br><br>
+		<input type="submit" value="Submit">
+	</form>
 </body>
 </html>

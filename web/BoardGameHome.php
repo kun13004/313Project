@@ -13,6 +13,7 @@ session_start();
 	<h1> Header Title </h1>
   <?php
     $_SESSION["username"];
+    $_SESSION["ftopic"];
     $log = $_POST["name"];
     if ($log == "logout") {
       $_SESSION["username"] = "";
