@@ -19,7 +19,14 @@ li:last-child {
     border-right: none;
 }
 
-li a, p {
+li p {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+}
+
+li a {
     display: block;
     color: white;
     text-align: center;
