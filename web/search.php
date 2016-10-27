@@ -61,8 +61,8 @@ session_start();
 		$result2->execute();
 
 		while ($row = $result2->fetch(PDO::FETCH_ASSOC)) {
-			$id = $row2['topic'];
-			echo '<a href="forum.php?name=$id">' . $row2['topic'] . '</a><br>';
+			$id = $row['topic'];
+			echo '<a href="forum.php?name=$id">' . $row['topic'] . '</a><br>';
 			echo "<br />\n";
 			$id++;
 		}
