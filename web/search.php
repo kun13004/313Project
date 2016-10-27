@@ -6,24 +6,9 @@
 <body>
 	<h2>Search results</h2>
 	<?php
-		// default Heroku Postgres configuration URL
-		$dbUrl = getenv('DATABASE_URL');
-
-		if (empty($dbUrl)) {
- 		// example localhost configuration URL with postgres username and a database called cs313db
- 		$dbUrl = "postgres://postgres:password@localhost:5432/scriptures";
-		}
-
-		$dbopts = parse_url($dbUrl);
-
-		$dbHost = $dbopts["host"]; 
- 		$dbPort = $dbopts["port"]; 
- 		$dbUser = $dbopts["user"]; 
- 		$dbPassword = $dbopts["pass"];
- 		$dbName = ltrim($dbopts["path"],'/');
-
+		
 		try {
-			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+			$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
 		}
 		catch (PDOException $ex) {
  			print "<p>error: $ex->getMessage() </p>\n\n";
@@ -33,20 +18,22 @@
 		$term = pg_escape_string($_REQUEST['search']);
 
 		$result = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
-		$result2 = $db->prepare("SELECT * FROM post WHERE post LIKE '%$term%'");
+		$result2 = $db->prepare("SELECT topic FROM forum INNER JOIN post ON forum.id = post.forum_id WHERE post.post LIKE '%$term%'");
 
 		$result->execute();
 		
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo $row['game_title'] . '<br>';
+			$id = $row['game_title'];
+			echo '<a href="game.php?name=$id">' . $row['game_title'] . '</a><br>';
 			echo "<br />\n";
 		}
 
 		$result2->execute();
 
 		while ($row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
-			echo $row2['post'] . '<br>';
+			$id = $row2['topic'];
+			echo '<a href="forum.php?name=$id">' . $row2['topic'] . '</a><br>';
 			echo "<br />\n";
 		}
 
