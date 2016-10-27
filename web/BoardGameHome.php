@@ -11,8 +11,7 @@ session_start();
   <script src="BoardGameHome.js"></script>
 </head>
 <body>
-  <div>
-  <h1>Home Page</h1>
+
   <ul>
   <?php
     $_SESSION["username"];
@@ -34,11 +33,12 @@ session_start();
   		<li><a href="games.php">Games</a></li>
   		<li><a href="forums.php">Forums</a></li>
   		<li><a href="about.html">About</a></li>
-	</ul>
-  <form method="post" action="search.php">
-      <input type="text" name="search" placeholder="Search..">
-  </form>
-	</form>
-	</div>
+      <li style="float:right;">
+        <form method="post" action="search.php">
+          <input type="text" name="search" placeholder="Search..">
+        </form>
+      </li>
+	 </ul>
+  
 </body>
 </html>
