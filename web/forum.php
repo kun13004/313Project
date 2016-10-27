@@ -37,7 +37,7 @@ session_start();
 			INNER JOIN member ON post.member_id = member.id 
 			WHERE forum.topic LIKE '%$term%'
 			ORDER BY post.parent_post_id");*/
-
+/*
 		$query = " WITH RECURSIVE all_posts AS (
   					SELECT  post, parent_post_id, id
     				FROM post
@@ -50,7 +50,9 @@ session_start();
 					)
 					SELECT * FROM all_posts
 					ORDER BY parent_post_id";
-
+*/
+		$query = "SELECT * FROM post
+					WHERE parent_post_id = NULL";
 
 		$result = pg_query($db, $query);
 
