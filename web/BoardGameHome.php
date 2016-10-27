@@ -31,8 +31,8 @@ session_start();
       echo '<li style="float:right"><a href="logout.php">Log out</a></li>';
     }
     else {
-      echo '<li style="float:right"><a href="login.html">Log in</a></li>';
-      echo '<li style="float:right"><a href="signup.html">Sign up</a></li>';
+      echo '<li style="float:right"><a href="loginPage.php">Log in</a></li>';
+      echo '<li style="float:right"><a href="signupPage.php">Sign up</a></li>';
     }
   ?>
       <li><a class="active" href="#">Home</a></li>
