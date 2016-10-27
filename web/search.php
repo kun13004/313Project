@@ -1,9 +1,20 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Search Results</title>
 </head>
 <body>
+	<div>
+	<a href="BoardGameHome.php">Home</a>
+	<?php
+		if ($_SESSION["username"] != "") {
+      		echo "<p>Welcome " . $_SESSION["username"] . "<p><br>";
+    	}
+    ?>
+	</div>
 	<h2>Search results</h2>
 	<?php
 		ini_set('display_errors','on');
