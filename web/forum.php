@@ -52,7 +52,7 @@ session_start();
 					ORDER BY parent_post_id";
 */
 		$query = "SELECT * FROM post
-					WHERE parent_post_id = NULL";
+					WHERE parent_post_id IS NULL";
 
 		$result = pg_query($db, $query);
 
