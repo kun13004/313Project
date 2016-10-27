@@ -13,6 +13,7 @@ session_start();
 <body>
   <div>
   <h1>Home Page</h1>
+  <ul>
   <?php
     $_SESSION["username"];
     $_SESSION["ftopic"];
@@ -21,22 +22,22 @@ session_start();
       $_SESSION["username"] = "";
     }
     if ($_SESSION["username"] != "") {
-      echo '<p>Welcome ' . $_SESSION["username"] . '<p><br>';
-      echo '<a href="logout.php">Log out</a>';
+      echo '<li style="float:right"><p>Welcome ' . $_SESSION["username"] . '</p></li>';
+      echo '<li style="float:right"><a href="logout.php">Log out</a></li>';
     }
     else {
-      echo '<a href="login.html">Log in</a><br>';
-      echo '<a href="signup.html">Sign up</a>';
+      echo '<li style="float:right"><a href="login.html">Log in</a></li>';
+      echo '<li style="float:right"><a href="signup.html">Sign up</a></li>';
     }
   ?>
-	<form method="post" action="search.php">
-  		<input type="text" name="search" placeholder="Search..">
-  	</form>  	
-	<ul>
+      <li><a class="active" href="#">Home</a></li>
   		<li><a href="games.php">Games</a></li>
   		<li><a href="forums.php">Forums</a></li>
   		<li><a href="about.html">About</a></li>
 	</ul>
+  <form method="post" action="search.php">
+      <input type="text" name="search" placeholder="Search..">
+  </form>
 	</form>
 	</div>
 </body>
