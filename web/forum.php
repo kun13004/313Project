@@ -30,34 +30,23 @@ session_start();
 
 		$term = pg_escape_string($_REQUEST['name']);
 
-		/*
-		$result = $db->prepare("SELECT forum.topic, post.post, post.post_date, post.post_time, member.user_name 
+		
+		$query = "SELECT forum.topic, post.post, post.post_date, post.post_time, member.user_name 
 			FROM post 
 			INNER JOIN forum ON post.forum_id = forum.id 
 			INNER JOIN member ON post.member_id = member.id 
 			WHERE forum.topic LIKE '%$term%'
-			ORDER BY post.parent_post_id");*/
-
-		$query = " WITH RECURSIVE all_posts AS (
-  					SELECT  post, parent_post_id, id
-    				FROM post
-    				WHERE parent_post_id IS NULL
-  					UNION
-  					SELECT at.post, at.parent_post_id, at.id
-    				FROM post at
-    				JOIN all_posts a
-      				ON (at.parent_post_id = a.id)
-					)
-					SELECT * FROM all_posts
-					ORDER BY parent_post_id";
+			ORDER BY post.parent_post_id";
 		
 
 		$result = pg_query($db, $query);
 
 		while ($row = pg_fetch_row($result)) {
 			echo $row[0] . "<br>";
-			echo $row[1] . " ";
-			echo $row[2] . "<br>";
+			echo $row[1] . "<br>";
+			echo $row[2] . " ";
+			echo $row[3] . " ";
+			echo $row[4] . "<br>";
 			echo "<br><br>";
 		}
 
