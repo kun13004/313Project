@@ -29,9 +29,12 @@
 	$newpost = pg_escape_string($_REQUEST['newpost']);
 	$member_id = pg_fetch_row($result1);
 	$forum_id = pg_fetch_row($result2);
+
+	echo $newpost;
 	
 
-	$query3 = "INSERT INTO post(member_id, forum_id, post, post_date, post_time) VALUES ('" . $member_id[0] . "', '" . $forum_id[0] . "', '" . $newpost . "', CURRENT_DATE, CURRENT_TIME')";
+	$query3 = "INSERT INTO post(member_id, forum_id, post, post_date, post_time) 
+				VALUES ('" . $member_id[0] . "', '" . $forum_id[0] . "', '" . $newpost . "', CURRENT_DATE, CURRENT_TIME)";
 	$result3 = pg_query($db, $query3);
 
 	if (!$result) { 
