@@ -18,22 +18,22 @@
 		$term = pg_escape_string($_REQUEST['search']);
 
 		$result = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
-		$result2 = $db->prepare("SELECT topic FROM forum INNER JOIN post ON forum.id = post.forum_id WHERE post.post LIKE '%$term%'");
+		$result2 = $db->prepare("SELECT * FROM forum INNER JOIN post ON forum.id = post.forum_id WHERE post.post LIKE '%$term%'");
 
 		$result->execute();
 		
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$id = $row['game_title'];
-			echo '<a href="game.php?name=$id">' . $row['game_title'] . '</a><br>';
+			$id1 = $row['game_title'];
+			echo '<a href="game.php?name=$id1">' . $row['game_title'] . '</a><br>';
 			echo "<br />\n";
 		}
 
 		$result2->execute();
 
 		while ($row2 = $result2->fetch(PDO::FETCH_ASSOC)) {
-			$id = $row2['topic'];
-			echo '<a href="forum.php?name=$id">' . $row2['topic'] . '</a><br>';
+			$id2 = $row2['topic'];
+			echo '<a href="forum.php?name=$id2">' . $row2['topic'] . '</a><br>';
 			echo "<br />\n";
 		}
 
