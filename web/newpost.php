@@ -34,7 +34,7 @@
 	
 
 	$query3 = "INSERT INTO post(member_id, forum_id, post, post_date, post_time) 
-				VALUES ('" . $member_id[0] . "', '" . $forum_id[0] . "', '" . $newpost . "', CURRENT_DATE, CURRENT_TIME)";
+				VALUES ('" . $member_id[0] . "', '" . $forum_id[0] . "', '" . $newpost . "', CURRENT_DATE, CURRENT_TIME);";
 	$result3 = pg_query($db, $query3);
 
 	if (!$result) { 
