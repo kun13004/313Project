@@ -12,8 +12,10 @@
  		die();
 	}
 
+	$id = $_SESSION["ftopic"];
+
 	if ($_SESSION["username"] == "") {
-		header("Location: https://fathomless-plateau-18398.herokuapp.com/forum.php");
+		header("Location: https://fathomless-plateau-18398.herokuapp.com/forum.php?name=$id");
     	exit();
     }
 
@@ -40,7 +42,6 @@
          
     pg_close();
 
-    $id = $_SESSION["ftopic"];
 
     header("Location: https://fathomless-plateau-18398.herokuapp.com/forum.php?name=$id");
     exit();
