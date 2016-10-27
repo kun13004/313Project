@@ -8,10 +8,11 @@ session_start();
 <head>
 	<title>Home Page</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="BoardGameHome.js"></script>
 </head>
 <body>
-	<div class="header">
-	<h1> Header Title </h1>
+  <div>
+  <h1>Home Page</h1>
   <?php
     $_SESSION["username"];
     $_SESSION["ftopic"];
@@ -30,10 +31,7 @@ session_start();
   ?>
 	<form method="post" action="search.php">
   		<input type="text" name="search" placeholder="Search..">
-  	</form>
-  	<div>
-  	<div>
-  	
+  	</form>  	
 	<ul>
   		<li><a href="games.php">Games</a></li>
   		<li><a href="forums.php">Forums</a></li>
