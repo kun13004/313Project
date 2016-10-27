@@ -16,7 +16,7 @@ session_start();
   <ul>
     <li style="float:right;">
       <form method="post" action="search.php">
-        <input type="text" name="search" placeholder="Search..">
+        <input type="text" name="search" placeholder=" Search..">
       </form>
     </li>
   <?php
