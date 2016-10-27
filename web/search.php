@@ -53,7 +53,7 @@ session_start();
 
 		while ($row = $result1->fetch(PDO::FETCH_ASSOC)) {
 			$id = $row['game_title'];
-			echo '<a href="game.php?name=$id">' . $row['game_title'] . '</a><br>';
+			echo "<a href='game.php?name=$id'>" . $row['game_title'] . "</a><br>";
 			echo "<br />\n";
 			$id++;
 		}
@@ -62,7 +62,7 @@ session_start();
 
 		while ($row = $result2->fetch(PDO::FETCH_ASSOC)) {
 			$id = $row['topic'];
-			echo '<a href="forum.php?name=$id">' . $row['topic'] . '</a><br>';
+			echo "<a href='forum.php?name=$id'>" . $row['topic'] . "</a><br>";
 			echo "<br />\n";
 			$id++;
 		}
