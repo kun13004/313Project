@@ -41,7 +41,7 @@ session_start();
 		$query = " WITH RECURSIVE all_posts AS (
   					SELECT  post, parent_post_id, id
     				FROM post
-    				WHERE parent_post_id = 'null'
+    				WHERE parent_post_id = ''
   					UNION
   					SELECT at.post, at.parent_post_id, at.id
     				FROM post at
