@@ -45,7 +45,7 @@ li a:hover:not(.active) {
 
 input[name=search] {
 	width: 200px;
-	height: 45px;
+	height: 47px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
