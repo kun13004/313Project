@@ -32,7 +32,7 @@
 			echo "<br />\n";
 		}
 
-		$result2 = pg_query()($db, $query2);
+		$result2 = pg_query($db, $query2);
 
 		while ($row2 = pg_fetch_row($result2)) {
 			$id2 = $row2[0];
