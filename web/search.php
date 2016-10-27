@@ -8,7 +8,7 @@
 	<?php
 		ini_set('display_errors','on');
         error_reporting(E_ALL);
-        
+
 		try {
 			$db = pg_connect('host=ec2-54-243-54-21.compute-1.amazonaws.com dbname=d1ci1fmm9irifj user=hugtqfrjvkgjma password=7dj1BOGitBNwtoO_b0dJzI9Jfg');
 		}
@@ -20,7 +20,8 @@
 		$term = pg_escape_string($_REQUEST['search']);
 
 		$result = $db->prepare("SELECT * FROM game WHERE game_title LIKE '%$term%' OR game_subtitle LIKE '%$term%' OR game_description LIKE '%$term%'");
-		$result2 = $db->prepare("SELECT * FROM forum INNER JOIN post ON forum.id = post.forum_id WHERE post.post LIKE '%$term%'");
+
+		$result2 = $db->prepare("SELECT forum.topic FROM forum INNER JOIN post ON forum.id = post.forum_id WHERE post.post LIKE '%$term%'");
 
 		$result->execute();
 		
