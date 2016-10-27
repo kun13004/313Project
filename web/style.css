@@ -69,7 +69,11 @@ input[name=search] {
 }
 
 .singleGameList {
+	display: block;
+	color: white;
 	background-color: green;
+	padding: 16px 18px;
+    text-decoration: none;
 }
 
 
