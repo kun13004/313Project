@@ -35,8 +35,7 @@ session_start();
 			FROM post 
 			INNER JOIN forum ON post.forum_id = forum.id 
 			INNER JOIN member ON post.member_id = member.id 
-			WHERE forum.topic LIKE '%$term%'
-			ORDER BY post.parent_post_id";
+			WHERE forum.topic LIKE '%$term%'";
 		
 
 		$result = pg_query($db, $query);
