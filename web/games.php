@@ -67,11 +67,7 @@ session_start();
   
 <div class="container-fluid text-center">
   <div class="row content">
-    <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-    </div>
+    
     <div class="col-sm-8 text-left gray">
 
     	<!-- List the Games -->
@@ -110,14 +106,7 @@ session_start();
 			?>
 		</div>
     </div>
-    <div class="col-sm-2 sidenav">
-      <div>
-        <img style="width:200px;height:125px;" src="http://4.bp.blogspot.com/-e1t6ivGSgUg/UKN6M6TPISI/AAAAAAAAK4E/rZ8Hq2qn-bE/s1600/bg_defendersoftherealm_2.jpg">
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div>
+    
   </div>
 </div>
 
