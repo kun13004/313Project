@@ -102,7 +102,7 @@ session_start();
 
 		$result = pg_query($db, $query);
 
-		echo "<h1>$_SESSION['ftopic']</h1>";
+		echo "<h1>" . $_SESSION["ftopic"] . "</h1>";
 
 		while ($row = pg_fetch_row($result)) {
 			echo $row[1] . "<br>";
