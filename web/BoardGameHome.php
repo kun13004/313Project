@@ -40,7 +40,7 @@ session_start();
         <!-- Header -->
   
         
-        <li><a class="active1" href="#">Home</a></li>
+        <li><a class="active" href="#">Home</a></li>
         <li><a href="games.php">Games</a></li>
         <li><a href="forums.php">Forums</a></li>
         <li><a href="about.php">About</a></li>
