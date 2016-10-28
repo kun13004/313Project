@@ -75,6 +75,7 @@ session_start();
     <div class="col-sm-8 text-left">
 
     <!-- List the Games -->
+    <div class="container">
       <h1>List of games</h1>
 	<div class="list-group">
 	<?php
@@ -108,6 +109,7 @@ session_start();
 			$id++;
 		}
 	?>
+	</div>
 	</div>
     </div>
     <div class="col-sm-2 sidenav">
