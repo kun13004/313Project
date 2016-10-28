@@ -74,43 +74,41 @@ session_start();
     </div>
     <div class="col-sm-8 text-left">
 
-    <!-- List the Games -->
-    <div class="container">
-      <h1>List of games</h1>
-	<div class="list-group">
-	<?php
-		$dbUrl = getenv('DATABASE_URL');
+    	<!-- List the Games -->
+    	<h1>List of games</h1>
+		<div class="list-group">
+			<?php
+				$dbUrl = getenv('DATABASE_URL');
 
-		if (empty($dbUrl)) {
- 		$dbUrl = "postgres://hugtqfrjvkgjma:7dj1BOGitBNwtoO_b0dJzI9Jfg@ec2-54-243-54-21.compute-1.amazonaws.com:5432/d1ci1fmm9irifj";
-		}
+				if (empty($dbUrl)) {
+ 				$dbUrl = "postgres://hugtqfrjvkgjma:7dj1BOGitBNwtoO_b0dJzI9Jfg@ec2-54-243-54-21.compute-1.amazonaws.com:5432/d1ci1fmm9irifj";
+				}
 
-		$dbopts = parse_url($dbUrl);
+				$dbopts = parse_url($dbUrl);
 
-		$dbHost = $dbopts["host"]; 
- 		$dbPort = $dbopts["port"]; 
- 		$dbUser = $dbopts["user"]; 
- 		$dbPassword = $dbopts["pass"];
- 		$dbName = ltrim($dbopts["path"],'/');
+				$dbHost = $dbopts["host"]; 
+ 				$dbPort = $dbopts["port"]; 
+ 				$dbUser = $dbopts["user"]; 
+ 				$dbPassword = $dbopts["pass"];
+ 				$dbName = ltrim($dbopts["path"],'/');
 
-		try {
-			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-		}
-		catch (PDOException $ex) {
- 			print "<p>error: $ex->getMessage() </p>\n\n";
- 			die();
-		}
+				try {
+					$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+				}
+				catch (PDOException $ex) {
+ 					print "<p>error: $ex->getMessage() </p>\n\n";
+ 					die();
+				}
 
-		$result = $db->prepare("SELECT * FROM game ORDER BY id");
-		$result->execute();
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$id = $row['game_title'];
-			echo "<div class='list-group-item'><a href='game.php?name=$id'>" . $row['game_title'] . " " . $row['game_subtitle'] . "</a></div>";
-			$id++;
-		}
-	?>
-	</div>
-	</div>
+				$result = $db->prepare("SELECT * FROM game ORDER BY id");
+				$result->execute();
+				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+					$id = $row['game_title'];
+					echo "<a class='list-group-item' href='game.php?name=$id'>" . $row['game_title'] . " " . $row['game_subtitle'] . "</a>";
+					$id++;
+				}
+			?>
+		</div>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
