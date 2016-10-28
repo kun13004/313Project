@@ -67,7 +67,7 @@ session_start();
   
 <div class="container-fluid text-center">
   <div class="row content">
-    <div class="col-xs-2 sidenav">
+    <div class="col-md-2 sidenav">
       <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>
