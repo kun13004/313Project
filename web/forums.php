@@ -74,6 +74,7 @@ session_start();
     </div>
     <div class="col-sm-8 text-left">
       <h1>List Forums</h1>
+      <div class="list-group">
 	<?php
 		// default Heroku Postgres configuration URL
 		$dbUrl = getenv('DATABASE_URL');
@@ -102,10 +103,11 @@ session_start();
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$id = $row['topic'];
-			echo "<a href='forum.php?name=$id'>" . $row['topic'] . "</a><br>";
+			echo "<a class='list-group-item' href='forum.php?name=$id'>" . $row['topic'] . "</a><br>";
 			echo "<br />\n";
 		}
 	?>
+	</div>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
