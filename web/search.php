@@ -74,7 +74,8 @@ session_start();
       <p><a href="#">Link</a></p>
     </div>
     <div class="col-sm-8 text-left gray">
-      
+    	<h1>Search Results</h1>
+      <div class='list-group'>
     	<?php
 		ini_set('display_errors','on');
         error_reporting(E_ALL);
@@ -112,8 +113,7 @@ session_start();
 
 		while ($row = $result1->fetch(PDO::FETCH_ASSOC)) {
 			$id = $row['game_title'];
-			echo "<a href='game.php?name=$id'>" . $row['game_title'] . "</a><br>";
-			echo "<br />\n";
+			echo "<a class='list-group-item' href='game.php?name=$id'>" . $row['game_title'] . "</a>";
 			$id++;
 		}
 
@@ -121,13 +121,12 @@ session_start();
 
 		while ($row = $result2->fetch(PDO::FETCH_ASSOC)) {
 			$id = $row['topic'];
-			echo "<a href='forum.php?name=$id'>" . $row['topic'] . "</a><br>";
-			echo "<br />\n";
+			echo "<a class='list-group-item' href='forum.php?name=$id'>" . $row['topic'] . "</a>";
 			$id++;
 		}
 
 	?>
-
+	</div>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
