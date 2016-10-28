@@ -69,6 +69,10 @@ input[name=search] {
 
 */
 
+.clear {
+	opacity: 0.0;
+}
+
 .gray {
 	background-color: rgb(175,175,175);
 }
