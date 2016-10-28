@@ -29,7 +29,7 @@
          
     pg_close();
 
-    header("Location: https://fathomless-plateau-18398.herokuapp.com/login.html");
+    header("Location: https://fathomless-plateau-18398.herokuapp.com/loginPage.php");
     exit();
     
 ?>

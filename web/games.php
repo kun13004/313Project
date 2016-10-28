@@ -67,7 +67,7 @@ session_start();
   
 <div class="container-fluid text-center">
   <div class="row content">
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav clear">
     </div>
     <div class="col-sm-8 text-left gray">
 
@@ -107,7 +107,7 @@ session_start();
 			?>
 		</div>
     </div>
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav clear">
     </div>
   </div>
 </div>
