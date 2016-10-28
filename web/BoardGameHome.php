@@ -61,8 +61,8 @@ session_start();
             $_SESSION["username"] = "";
           }
           if ($_SESSION["username"] != "") {
-            echo '<li style="float:right"><p>Welcome ' . $_SESSION["username"] . '</p></li>';
-            echo '<li style="float:right"><a href="logout.php">Log out</a></li>';
+            echo '<li style="float:right"><p><span>Welcome ' . $_SESSION["username"] . '</span></p></li>';
+            echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></a></li>';
           }
           else {
             echo '<li><a href="loginPage.php"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>';
