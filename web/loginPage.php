@@ -62,7 +62,7 @@
         <div class="row content">
             <div class="col-sm-2 sidenav clear">
             </div>
-            <div class="col-sm-8 text-left gray moreSpacing">
+            <div class="col-sm-8 text-left gray moreSpace">
                 <h1>Log In</h1>
                 <div>
                     <form action="profile.php" method="post">

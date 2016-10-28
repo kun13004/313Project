@@ -64,7 +64,7 @@
             </div>
             <div class="col-sm-8 text-left gray">
                 <h1>Sign up</h1>
-                <form class="moreSpacing" action="login.php" method="post">
+                <form class="moreSpace" action="login.php" method="post">
                     <strong>First Name</strong>
                     <input type="text" name="firstname"><br><br>
                     <strong>Last Name</strong>
