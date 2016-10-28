@@ -81,6 +81,7 @@ input[name=search] {
 .dark-gray {
 	background-color: rgb(50,50,50);
 	color: white;
+	padding: 100px;
 }
 
 
