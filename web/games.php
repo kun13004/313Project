@@ -112,7 +112,7 @@ session_start();
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <img src="http://4.bp.blogspot.com/-e1t6ivGSgUg/UKN6M6TPISI/AAAAAAAAK4E/rZ8Hq2qn-bE/s1600/bg_defendersoftherealm_2.jpg">
+        <img style="width:100px;height:75px;" src="http://4.bp.blogspot.com/-e1t6ivGSgUg/UKN6M6TPISI/AAAAAAAAK4E/rZ8Hq2qn-bE/s1600/bg_defendersoftherealm_2.jpg">
       </div>
       <div class="well">
         <p>ADS</p>
