@@ -108,7 +108,7 @@ session_start();
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div>
+        <div class="moreSpace">
             <h2>Board Game Brunch</h2>
             <p>
             Here at Board Game Brunch we love board games so much we would eat them if we could. This is the place to search out your next favorite game, or if you feel like you know it all and have some clever ideas then this is the place to come and discuss your board game thoughts, theories, and future ideas. He we collaberate, share, and hopefully soon demo future upcoming games.
