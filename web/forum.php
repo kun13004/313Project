@@ -77,7 +77,7 @@ session_start();
     <div class="col-sm-8 text-left">
       	
     	<?php
-    	echo "<h1>" . $_SESSION['ftopic'] . "</h1>";
+
 		ini_set('display_errors','on');
         error_reporting(E_ALL);
 
@@ -101,6 +101,8 @@ session_start();
 		
 
 		$result = pg_query($db, $query);
+
+		echo "<h1>$_SESSION['ftopic']</h1>";
 
 		while ($row = pg_fetch_row($result)) {
 			echo $row[1] . "<br>";
