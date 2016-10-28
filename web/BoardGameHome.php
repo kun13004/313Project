@@ -50,7 +50,7 @@ session_start();
         <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
         <li style="float:right;">
         <form method="post" action="search.php">
-          <input type="text" name="search" placeholder=" Search..">
+          <input class="glyphicon glyphicon-search" type="text" name="search" placeholder=" Search..">
         </form>
         </li>
         <?php
