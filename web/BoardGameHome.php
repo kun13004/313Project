@@ -114,9 +114,13 @@ session_start();
         </a>
       </div>
       <div>
-        <h3>Something</h3>
+        <h2>Board Game Brunch</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Here at Board Game Brunch we love board games so much we would eat them if we could. This is the place to search out your next favorite game, or if you feel like you know it all and have some clever ideas then this is the place to come and discuss your board game thoughts, theories, and future ideas. He we collaberate, share, and hopefully soon demo future upcoming games.
+        </p>
+        <h3>Comming Soon!</h3>
+        <p>
+          We hope to soon have our weekly videos up and running, where we delve into board game concepts and desins specified in our forums. Check in soon to learn more!
         </p>
       </div>
     </div>
