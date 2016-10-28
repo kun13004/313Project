@@ -63,7 +63,7 @@
         <div class="row content">
             <div class="col-sm-2 sidenav clear">
             </div>
-            <div class="col-sm-8 text-left gray">
+            <div class="col-sm-8 text-left gray moreSpace">
                 <h1>Welcome</h1>
                 <p>
                     Board Game Brunch (the name isn't really solidified) is a website that I would like to eventually create someday. I know that this is a site too, but I mean a full blown site with it's own domain and where the games and forums are a bit more in depth. I would like to add weekly videos to the site and possibly incorporate a google hangouts sort of page for other board gamers to chat. This site is my php project for CS-313. It contains a database full of board games, forums, and members. Users can search for topics or key words found in game or forum pages, or go directly to the page list of games or forums.

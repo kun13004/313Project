@@ -64,7 +64,7 @@ session_start();
   		<div class="row content">
     		<div class="col-sm-2 sidenav clear">
     		</div>
-    		<div class="col-sm-8 text-left gray">	
+    		<div class="col-sm-8 text-left gray moreSpace">	
     			<?php
 
 					ini_set('display_errors','on');
