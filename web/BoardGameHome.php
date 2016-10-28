@@ -122,7 +122,7 @@ session_start();
     </div>
 
     <footer class="container-fluid text-center dark-gray">
-        <a href="about.php"><h4 class="glyphicon glyphicon-info-sign">About</h4></a>
+        <a href="about.php"><h4 class="glyphicon glyphicon-info-sign"> About</h4></a>
     </footer>
   
 </body>

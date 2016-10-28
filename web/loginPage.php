@@ -62,7 +62,7 @@
         <div class="row content">
             <div class="col-sm-2 sidenav clear">
             </div>
-            <div class="col-sm-8 text-left gray">
+            <div class="col-sm-8 text-left gray moreSpacing">
                 <h1>Log In</h1>
                 <div>
                     <form action="profile.php" method="post">
@@ -80,7 +80,7 @@
     </div>
 
     <footer class="container-fluid text-center dark-gray">
-        <p>Footer Text</p>
+        <a href="about.php"><h4 class="glyphicon glyphicon-info-sign"> About</h4></a>
     </footer>
 
 

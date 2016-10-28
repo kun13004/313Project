@@ -69,6 +69,14 @@ input[name=search] {
 
 */
 
+.tCenter {
+	text-align: center;
+}
+
+.moreSpace {
+	padding: 25px;
+}
+
 .clear {
 	opacity: 0.0;
 }

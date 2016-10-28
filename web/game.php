@@ -106,7 +106,7 @@ session_start();
 	</div>
 
 	<footer class="container-fluid text-center dark-gray">
-  		<p>Footer Text</p>
+  		<a href="about.php"><h4 class="glyphicon glyphicon-info-sign"> About</h4></a>
 	</footer>
 
 </body>

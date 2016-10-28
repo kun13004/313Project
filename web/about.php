@@ -65,10 +65,12 @@
             </div>
             <div class="col-sm-8 text-left gray">
                 <h1>Welcome</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>
+                    Board Game Brunch (the name isn't really solidified) is a website that I would like to eventually create someday. I know that this is a site too, but I mean a full blown site with it's own domain and where the games and forums are a bit more in depth. I would like to add weekly videos to the site and possibly incorporate a google hangouts sort of page for other board gamers to chat. This site is my php project for CS-313. It contains a database full of board games, forums, and members. Users can search for topics or key words found in game or forum pages, or go directly to the page list of games or forums.
+                </p>
                 <hr>
-                <h3>Test</h3>
-                <p>Lorem ipsum...</p>
+                <h3>Who am I</h3>
+                <p>I am an aspiring computer scientist. I enjoy coding very much and have found that I do enjoy web developement a great deal. I have grown up in Idaho Falls most my life. My uncle introduced me to board games. Since then I have grown to love it and become somewhat of a fanatic on board games. I have a pretty good size collection of board games, although a can't say I'm anywhere close to what I hope to have in the future. I have a vast list of games that I want to own, but time and money permit me to chip away at that list slowly.</p>
             </div>
             <div class="col-sm-2 sidenav clear">
             </div>
@@ -76,7 +78,7 @@
     </div>
 
     <footer class="container-fluid text-center dark-gray">
-        <p>Footer Text</p>
+        <a href="about.php"><h4 class="glyphicon glyphicon-info-sign"> About</h4></a>
     </footer>
 
 </body>

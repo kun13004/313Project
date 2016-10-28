@@ -64,7 +64,7 @@ session_start();
     		<div class="col-sm-2 sidenav clear">
     		</div>
     		<div class="col-sm-8 text-left gray">
-      			<h1>Forums</h1>
+      			<h1 class="tCenter">Forums</h1>
       			<div class="list-group">
 					<?php
 						// default Heroku Postgres configuration URL
@@ -105,7 +105,7 @@ session_start();
 	</div>
 
 	<footer class="container-fluid text-center dark-gray">
-  		<p>Footer Text</p>
+  		<a href="about.php"><h4 class="glyphicon glyphicon-info-sign"> About</h4></a>
 	</footer>
 
 </body>
