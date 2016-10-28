@@ -81,4 +81,8 @@ input[name=search] {
     border: 2px solid #ccc;
 }
 
+.dark-gray {
+	background-color: rgb(50,50,50);
+}
+
 
