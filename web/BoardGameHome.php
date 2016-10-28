@@ -88,19 +88,19 @@ session_start();
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <img src="http://gamingtrend.com/wp-content/screenshots/black-fleet/img_0674.jpg" alt="Chania" width="460" height="345">
+            <img src="http://gamingtrend.com/wp-content/screenshots/black-fleet/img_0674.jpg" alt="Board Game" style="width:460px;height:345px;">
           </div>
 
           <div class="item">
-            <img src="https://www.shutupandsitdown.com/wp-content/uploads/2011/08/75654478f75011e2b73af23c91709c91_1374993571.jpg" alt="Chania" width="460" height="345">
+            <img src="https://www.shutupandsitdown.com/wp-content/uploads/2014/03/bf4048e7ee6437d7c9fb4318d0e031ab.jpg" alt="Rampage" style="width:460px;height:345px;">
           </div>
     
           <div class="item">
-            <img src="https://i.kinja-img.com/gawker-media/image/upload/s--fOtZ-iNu--/c_scale,fl_progressive,q_80,w_800/1464500061578344995.jpg" alt="Flower" width="460" height="345">
+            <img src="https://i.kinja-img.com/gawker-media/image/upload/s--fOtZ-iNu--/c_scale,fl_progressive,q_80,w_800/1464500061578344995.jpg" alt="Imperial Assault" style="width:460px;height:345px;">
           </div>
 
           <div class="item">
-            <img src="http://www.boardgamequest.com/wp-content/uploads/2015/10/Pandemic-Legacy-Header.jpg" alt="Flower" width="460" height="345">
+            <img src="http://www.boardgamequest.com/wp-content/uploads/2015/10/Pandemic-Legacy-Header.jpg" alt="Pandemic" style="width:460px;height:345px;">
           </div>
         </div>
 
