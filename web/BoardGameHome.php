@@ -117,8 +117,8 @@ session_start();
     </div>
 
 
-<footer class="container-fluid text-center dark-gray">
-  <p>Footer Text</p>
+<footer class="container text-center dark-gray">
+  <h4>Footer Text</h4>
 </footer>
 
 
