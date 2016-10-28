@@ -1,5 +1,6 @@
 body {
-	background-color: rgb(175,175,175);
+	background-image: url("http://journeymangm.com/wp-content/uploads/2013/01/Pile-of-Dice.jpg");
+	background-repeat: no-repeat;
 }
 /*
 
@@ -66,18 +67,9 @@ input[name=search] {
 	Style for the game list
 
 */
-.gameList {
-	background-color: blue;
-	padding: 25px;
-}
 
-.singleGameList {
-	display: block;
-	color: white;
-	background-color: green;
-	padding: 16px 18px;
-    text-decoration: none;
-    border: 2px solid #ccc;
+.gray {
+	background-color: rgb(175,175,175);
 }
 
 .dark-gray {
