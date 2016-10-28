@@ -34,7 +34,7 @@
         <li><a href="BoardGameHome.php">Home</a></li>
         <li><a href="games.php">Games</a></li>
         <li><a href="forums.php">Forums</a></li>
-        <li><a class="active" href="about.php">About</a></li>
+        <li><a class="active" href="#">About</a></li>
    
       </ul>
       <ul class="nav navbar-nav navbar-right">

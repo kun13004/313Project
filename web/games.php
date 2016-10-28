@@ -31,7 +31,7 @@ session_start();
   
         
         <li><a href="BoardGameHome.php">Home</a></li>
-        <li><a class="active" href="games.php">Games</a></li>
+        <li><a class="active" href="#">Games</a></li>
         <li><a href="forums.php">Forums</a></li>
         <li><a href="about.php">About</a></li>
    
