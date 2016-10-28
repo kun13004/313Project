@@ -61,7 +61,7 @@ session_start();
             $_SESSION["username"] = "";
           }
           if ($_SESSION["username"] != "") {
-            echo '<li style="float:right"><p><span>Welcome ' . $_SESSION["username"] . '</span></p></li>';
+            echo '<li><p class="glyphicon"><span>Welcome ' . $_SESSION["username"] . '</span></p></li>';
             echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></a></li>';
           }
           else {
