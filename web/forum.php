@@ -74,7 +74,7 @@ session_start();
       <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>
     </div>
-    <div class="col-sm-8 text-left">
+    <div class="col-sm-8 text-left gray">
       	
     	<?php
 

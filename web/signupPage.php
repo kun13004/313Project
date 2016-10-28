@@ -74,7 +74,7 @@
       <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>
     </div>
-    <div class="col-sm-8 text-left">
+    <div class="col-sm-8 text-left gray">
       <h1>Sign up</h1>
   <form action="login.php" method="post">
     <strong>First Name</strong>

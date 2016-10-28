@@ -47,7 +47,6 @@ session_start();
    
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
         <li style="float:right;">
         <form method="post" action="search.php">
           <input class="glyphicon glyphicon-search" type="text" name="search" placeholder=" Search..">
@@ -74,7 +73,7 @@ session_start();
   </div>
 </nav>
     <!-- Put the carousel here -->
-    <div class="container">
+    <div class="container gray">
       <br>
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
