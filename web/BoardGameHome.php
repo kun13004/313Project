@@ -39,6 +39,15 @@ session_start();
       <ul class="nav navbar-nav">
         <!-- Header -->
   
+        
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="games.php">Games</a></li>
+        <li><a href="forums.php">Forums</a></li>
+        <li><a href="about.php">About</a></li>
+   
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
         <li style="float:right;">
         <form method="post" action="search.php">
           <input type="text" name="search" placeholder=" Search..">
@@ -56,18 +65,10 @@ session_start();
             echo '<li style="float:right"><a href="logout.php">Log out</a></li>';
           }
           else {
-            echo '<li style="float:right"><a href="loginPage.php">Log in</a></li>';
-            echo '<li style="float:right"><a href="signupPage.php">Sign up</a></li>';
+            echo '<li><a href="loginPage.php"><span class="glyphicon glyphicon-log-in"></a></li>';
+            echo '<li><a href="signupPage.php"><span class="glyphicon glyphicon-registration-mark"></a></li>';
           }
         ?>
-        <li><a class="active" href="#">Home</a></li>
-        <li><a href="games.php">Games</a></li>
-        <li><a href="forums.php">Forums</a></li>
-        <li><a href="about.php">About</a></li>
-   
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
