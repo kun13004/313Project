@@ -75,8 +75,9 @@ session_start();
       <p><a href="#">Link</a></p>
     </div>
     <div class="col-sm-8 text-left">
-      
+      	
     	<?php
+    	echo "<h1>" . $_SESSION['ftopic'] . "</h1>";
 		ini_set('display_errors','on');
         error_reporting(E_ALL);
 
