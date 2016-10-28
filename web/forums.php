@@ -103,8 +103,7 @@ session_start();
 		$result->execute();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$id = $row['topic'];
-			echo "<a class='list-group-item' href='forum.php?name=$id'>" . $row['topic'] . "</a><br>";
-			echo "<br />\n";
+			echo "<a class='list-group-item' href='forum.php?name=$id'>" . $row['topic'] . "</a>";
 		}
 	?>
 	</div>
