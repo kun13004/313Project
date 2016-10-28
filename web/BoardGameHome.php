@@ -65,8 +65,8 @@ session_start();
             echo '<li style="float:right"><a href="logout.php">Log out</a></li>';
           }
           else {
-            echo '<li><a href="loginPage.php"><span class="glyphicon glyphicon-log-in"></a></li>';
-            echo '<li><a href="signupPage.php"><span class="glyphicon glyphicon-registration-mark"></a></li>';
+            echo '<li><a href="loginPage.php"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>';
+            echo '<li><a href="signupPage.php"><span class="glyphicon glyphicon-log-in"></span> Sign up</a></li>';
           }
         ?>
       </ul>
